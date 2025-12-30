@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags for Google -->
     <title>Gamer Info GG | Specialized Game Intelligence Hub</title>
-    <meta name="description" content="Expert guides and meta updates for Where Winds Meet, CS2, and Valorant. Master the Jianghu and dominate the competitive shooter ladders.">
-    <meta name="keywords" content="Where Winds Meet guide, CS2 patch notes, Valorant agent tier list, Gamer Info GG">
-    <meta name="author" content="Gamer Info GG">
+    <meta name="description" content="Expert guides and meta updates for Where Winds Meet, CS2, and Valorant.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,305 +15,262 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
         
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #f8fafc;
-            color: #1e293b;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+            background-color: #f8fafc; 
+            color: #1e293b; 
         }
-
-        h1, h2, h3, .logo-font {
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: -0.025em;
+        
+        h1, h2, h3, .logo-font { 
+            font-family: 'Orbitron', sans-serif; 
+            letter-spacing: -0.025em; 
         }
-
-        .soft-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+        
+        .soft-card { 
+            background: white; 
+            border: 1px solid #e2e8f0; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+            transition: all 0.3s ease; 
+            cursor: pointer;
         }
-
-        .soft-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
+        
+        .soft-card:hover { 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+            transform: translateY(-2px); 
         }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
         }
-
-        .accent-gradient {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        
+        .accent-gradient { 
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); 
         }
-
+        
         .winds-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
         .cs2-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
         .val-gradient { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
-
-        .hero-bg {
-            background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.88)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
+        
+        .hero-bg { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
         }
 
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(#4f46e5 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
         }
 
-        img {
-            background-color: #e2e8f0;
-            object-fit: cover;
+        @keyframes marquee { 
+            0% { transform: translateX(100%); } 
+            100% { transform: translateX(-100%); } 
+        }
+        
+        .animate-marquee { animation: marquee 30s linear infinite; }
+        
+        img { 
+            background-color: #e2e8f0; 
+            object-fit: cover; 
+            display: block;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-active {
+            display: block;
         }
     </style>
 </head>
 <body class="text-slate-800">
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 font-bold text-xl tracking-tighter logo-font text-slate-900 flex items-center gap-2">
+                <div onclick="showPage('home')" class="flex-shrink-0 font-bold text-xl tracking-tighter logo-font text-slate-900 flex items-center gap-2 cursor-pointer">
                     <div class="w-8 h-8 accent-gradient rounded flex items-center justify-center">
                         <i data-lucide="info" class="w-5 h-5 text-white"></i>
                     </div>
                     GAMER<span class="text-indigo-600">INFO.GG</span>
                 </div>
-
-                <div class="hidden lg:flex flex-1 max-w-sm mx-8">
-                    <div class="relative w-full">
-                        <input type="text" placeholder="Search guides..." class="w-full bg-slate-100 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500 transition-all">
-                        <i data-lucide="search" class="absolute left-3 top-2.5 w-4 h-4 text-slate-400"></i>
-                    </div>
-                </div>
-
                 <div class="hidden md:block">
                     <div class="flex items-baseline space-x-6 font-semibold uppercase text-[10px] tracking-widest text-slate-600">
-                        <a href="#winds-meet" class="hover:text-amber-600 transition-colors">Winds Meet</a>
-                        <a href="#cs2" class="hover:text-blue-600 transition-colors">CS2</a>
-                        <a href="#valorant" class="hover:text-pink-600 transition-colors">Valorant</a>
-                        <a href="#contact" class="accent-gradient text-white px-5 py-2 rounded-lg shadow-lg shadow-indigo-500/20 hover:opacity-90 transition-all">Join</a>
+                        <a href="#winds-meet" onclick="showPage('home')" class="hover:text-amber-600 transition-colors">Winds Meet</a>
+                        <a href="#cs2" onclick="showPage('home')" class="hover:text-blue-600 transition-colors">CS2</a>
+                        <a href="#valorant" onclick="showPage('home')" class="hover:text-pink-600 transition-colors">Valorant</a>
                     </div>
                 </div>
-
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="p-2 text-slate-600">
-                        <i data-lucide="menu"></i>
-                    </button>
-                </div>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 p-4 space-y-4 font-bold uppercase tracking-widest text-xs">
-            <a href="#winds-meet" class="block">Where Winds Meet</a>
-            <a href="#cs2" class="block">CS2</a>
-            <a href="#valorant" class="block">Valorant</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg relative pt-44 pb-32 overflow-hidden border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-8">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                </span>
-                LIVE: Budapest Major 2025 Picks Live
+    <!-- HOME PAGE -->
+    <main id="home-page" class="page-content page-active">
+        <section class="hero-bg relative pt-44 pb-32 border-b border-slate-100">
+            <div class="hero-pattern"></div>
+            <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 text-slate-900 uppercase">
+                    Expert <span class="text-indigo-600">Intelligence</span> Hub
+                </h1>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">Data-driven strategy for Where Winds Meet, CS2, and Valorant.</p>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-tight text-slate-900 uppercase">
-                Expert <span class="text-indigo-600">Intelligence</span> Hub
-            </h1>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
-                Data-driven strategy for Where Winds Meet, CS2, and Valorant.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#winds-meet" class="px-6 py-3 bg-amber-500 text-white rounded-lg font-bold hover:bg-amber-600 transition-all flex items-center gap-2 shadow-lg shadow-amber-200">
-                    <i data-lucide="swords" class="w-4 h-4"></i> Winds Meet
-                </a>
-                <a href="#cs2" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-200">
-                    <i data-lucide="crosshair" class="w-4 h-4"></i> CS2 News
-                </a>
-                <a href="#valorant" class="px-6 py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-all flex items-center gap-2 shadow-lg shadow-pink-200">
-                    <i data-lucide="target" class="w-4 h-4"></i> Val Meta
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section: Where Winds Meet -->
-    <section id="winds-meet" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-amber-100 pb-6">
-                <div class="w-12 h-12 winds-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-amber-200">
-                    <i data-lucide="mountain"></i>
-                </div>
-                <div>
+        <!-- SECTION: WHERE WINDS MEET -->
+        <section id="winds-meet" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-amber-100 pb-6">
+                    <div class="w-12 h-12 winds-gradient rounded-xl flex items-center justify-center text-white"><i data-lucide="mountain"></i></div>
                     <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Where Winds Meet</h2>
-                    <p class="text-amber-600 font-bold text-xs uppercase tracking-[0.2em]">Strategy & Jianghu Secrets</p>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 soft-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-[450px] overflow-hidden">
-                        <!-- Corrected for Where Winds Meet -->
-                        <img src="c252be2dfe782597c926652765be5bc9.jpg" 
-                             onerror="this.src='https://images.unsplash.com/photo-1524143878510-e3b8d6312402?auto=format&fit=crop&q=80&w=1200'"
-                             alt="Where Winds Meet Walkthrough" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-0 p-8">
-                            <span class="px-3 py-1 bg-amber-500 text-white text-[10px] font-bold rounded-full mb-4 inline-block uppercase">Featured Walkthrough</span>
-                            <h3 class="text-3xl font-bold text-white mb-2 leading-tight uppercase">The Roaring Sands Guide</h3>
-                            <p class="text-slate-200 max-w-xl">Comprehensive node map and boss strategies for the latest update.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('winds-walkthrough')">
+                        <img src="c252be2dfe782597c926652765be5bc9.jpg" onerror="this.src='https://placehold.co/800x450/f59e0b/ffffff?text=Winds+Meet'" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <span class="text-[10px] text-amber-600 font-bold uppercase tracking-widest">Guide</span>
+                            <h3 class="text-xl font-bold mt-2 mb-4">Roaring Sands: The River Master Walkthrough</h3>
+                            <p class="text-sm text-slate-500 mb-6">Complete node map and boss strategies for the latest update.</p>
+                            <span class="text-indigo-600 font-bold text-xs uppercase">Read More</span>
                         </div>
                     </div>
                 </div>
-                <div class="space-y-6">
-                    <div class="p-6 soft-card rounded-2xl border-l-4 border-l-amber-500">
-                        <h4 class="text-slate-900 font-bold mb-2 uppercase text-sm">NPC Tracker</h4>
-                        <p class="text-sm text-slate-500 mb-4">Location guide for Yan Qiren's Meridian training.</p>
-                        <a href="#" class="text-amber-600 text-xs font-bold uppercase flex items-center gap-1">Open <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
-                    </div>
-                    <div class="p-6 soft-card rounded-2xl border-l-4 border-l-amber-500">
-                        <h4 class="text-slate-900 font-bold mb-2 uppercase text-sm">Weapon Tiers</h4>
-                        <p class="text-sm text-slate-500 mb-4">Umbrella vs. Glaive: The current dueling meta.</p>
-                        <a href="#" class="text-amber-600 text-xs font-bold uppercase flex items-center gap-1">View <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section: CS2 -->
-    <section id="cs2" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-blue-100 pb-6">
-                <div class="w-12 h-12 cs2-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
-                    <i data-lucide="crosshair"></i>
-                </div>
-                <div>
+        <!-- SECTION: CS2 -->
+        <section id="cs2" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-blue-100 pb-6">
+                    <div class="w-12 h-12 cs2-gradient rounded-xl flex items-center justify-center text-white"><i data-lucide="crosshair"></i></div>
                     <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Counter-Strike 2</h2>
-                    <p class="text-blue-600 font-bold text-xs uppercase tracking-[0.2em]">Tactical Intelligence</p>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-5 soft-card rounded-2xl overflow-hidden group h-full min-h-[400px]">
-                    <!-- Corrected for CS2 -->
-                    <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" 
-                         onerror="this.src='https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=1200'"
-                         alt="CS2 Gameplay" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                </div>
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="soft-card rounded-2xl p-8 bg-blue-600 text-white text-center">
-                        <h3 class="font-bold text-xl mb-4 uppercase tracking-widest">Budapest Major 2025</h3>
-                        <div class="flex justify-center gap-6 mb-4">
-                            <div><span class="block text-3xl font-bold">12</span><span class="text-[10px] uppercase opacity-80">Days</span></div>
-                            <div><span class="block text-3xl font-bold">08</span><span class="text-[10px] uppercase opacity-80">Hours</span></div>
-                        </div>
-                        <button class="bg-white text-blue-600 px-6 py-2 rounded-lg font-bold text-xs uppercase shadow-lg">Predictions</button>
-                    </div>
-                    <div class="soft-card rounded-2xl p-8 border-t-4 border-t-blue-500 bg-white">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4 uppercase">Sticker Slab Meta</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">How the new weapon charms are affecting skin values and trading escrow.</p>
-                        <button class="px-6 py-3 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase">Read Analysis</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: Valorant -->
-    <section id="valorant" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-pink-100 pb-6">
-                <div class="w-12 h-12 val-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
-                    <i data-lucide="shield"></i>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Valorant Meta</h2>
-                    <p class="text-pink-600 font-bold text-xs uppercase tracking-[0.2em]">Competitive Analysis</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                <div class="lg:col-span-1 soft-card rounded-2xl p-6 bg-slate-50 border-pink-100">
-                    <h3 class="font-bold text-slate-900 mb-6 uppercase text-sm tracking-widest text-center">Current S-Tier</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-pink-100 shadow-sm">
-                            <span class="font-bold text-sm">Clove</span>
-                            <span class="text-[10px] text-pink-500 font-bold bg-pink-50 px-2 py-0.5 rounded-full">52%</span>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-pink-100 shadow-sm">
-                            <span class="font-bold text-sm">Sage</span>
-                            <span class="text-[10px] text-pink-500 font-bold bg-pink-50 px-2 py-0.5 rounded-full">51%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-3">
-                    <div class="soft-card rounded-2xl p-6 flex flex-col md:flex-row gap-8 items-center bg-white h-full">
-                        <div class="w-full md:w-72 h-44 rounded-xl overflow-hidden shrink-0 shadow-lg">
-                            <img src="514900cd41d28c33a82aa4c6282b4fb6.jpg" 
-                                 onerror="this.src='https://images.unsplash.com/photo-1614014077943-840960ce671a?auto=format&fit=crop&q=80&w=600'"
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold text-pink-600 uppercase mb-2 block">Agent Rework</span>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-2 uppercase">Harbor: The Solo Controller</h3>
-                            <p class="text-slate-500 text-sm mb-6">Mastering the Abyss and Pearl metas with the new 'Cove' buffs.</p>
-                            <a href="#" class="inline-flex items-center gap-2 text-pink-600 font-bold text-xs uppercase hover:translate-x-1 transition-transform">Patch Guide <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('cs2-economy')">
+                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" onerror="this.src='https://placehold.co/800x450/3b82f6/ffffff?text=CS2+Meta'" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <span class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Economy</span>
+                            <h3 class="text-xl font-bold mt-2 mb-4">Sticker Slab Economy Analysis</h3>
+                            <p class="text-sm text-slate-500 mb-6">How weapon charms are changing the skin trading landscape.</p>
+                            <span class="text-indigo-600 font-bold text-xs uppercase">Read More</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Patch Feed -->
-    <section class="py-6 bg-slate-100 border-y border-slate-200 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 flex items-center">
-            <div class="flex-shrink-0 bg-slate-900 text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest z-10">Live</div>
-            <div class="flex-1 whitespace-nowrap relative ml-4">
-                <div class="animate-marquee inline-block text-xs font-medium text-slate-600 space-x-12">
-                    <span>CS2: Patch 1.40.2.1 live • Major Viewer Pass active</span>
-                    <span>WHERE WINDS MEET: Server maintenance Dec 30</span>
-                    <span>VALORANT: Harbor Rework rollout complete</span>
+        <!-- SECTION: VALORANT -->
+        <section id="valorant" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-pink-100 pb-6">
+                    <div class="w-12 h-12 val-gradient rounded-xl flex items-center justify-center text-white"><i data-lucide="shield"></i></div>
+                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Valorant</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('valorant-harbor')">
+                        <img src="514900cd41d28c33a82aa4c6282b4fb6.jpg" onerror="this.src='https://placehold.co/800x450/ec4899/ffffff?text=Valorant+Meta'" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <span class="text-[10px] text-pink-600 font-bold uppercase tracking-widest">Rework</span>
+                            <h3 class="text-xl font-bold mt-2 mb-4">Harbor: The New Controller King</h3>
+                            <p class="text-sm text-slate-500 mb-6">Analyzing the utility buffs that made Harbor S-Tier again.</p>
+                            <span class="text-indigo-600 font-bold text-xs uppercase">Read More</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="py-16 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="font-bold text-xl tracking-tighter logo-font text-slate-900 mb-6 uppercase">
-                GAMER<span class="text-indigo-600">INFO.GG</span>
-            </div>
-            <p class="text-slate-400 text-sm mb-8">Data-driven intelligence for the titles that matter.</p>
-            <div class="flex justify-center space-x-8 text-slate-400">
-                <a href="#" class="hover:text-indigo-600"><i data-lucide="twitch" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-indigo-600"><i data-lucide="discord" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-indigo-600"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-            </div>
-            <div class="mt-12 text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">
-                Master the Meta © 2025
+    <!-- ARTICLE PAGE -->
+    <main id="article-page" class="page-content pt-32 pb-24">
+        <div class="max-w-4xl mx-auto px-4">
+            <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-bold mb-8 hover:gap-3 transition-all">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+            </button>
+            
+            <div id="article-content">
+                <!-- Content injected by JS -->
             </div>
         </div>
+    </main>
+
+    <footer class="py-16 bg-white border-t border-slate-100 text-center">
+        <div class="font-bold text-xl tracking-tighter logo-font text-slate-900 mb-6 uppercase">GAMER<span class="text-indigo-600">INFO.GG</span></div>
+        <p class="text-slate-400 text-sm">© 2025 Gamer Info GG</p>
     </footer>
 
     <script>
         lucide.createIcons();
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        const articles = {
+            'winds-walkthrough': {
+                title: "Roaring Sands: The River Master Walkthrough",
+                category: "Where Winds Meet Guide",
+                image: "c252be2dfe782597c926652765be5bc9.jpg",
+                content: `
+                    <p class="text-lg leading-relaxed mb-6">The Roaring Sands expansion for Where Winds Meet has introduced a massive new desert territory and the complex "River Master" questline. This guide breaks down the essential nodes you need to find.</p>
+                    <h4 class="text-2xl font-bold mb-4">Finding the First Node</h4>
+                    <p class="mb-6">Start at the Northern Oasis. You'll need the "Wind Step" ability at Level 3 to reach the high-altitude temple where the River Master resides.</p>
+                    <h4 class="text-2xl font-bold mb-4">Boss Strategy: The Mirage Weaver</h4>
+                    <p class="mb-6">The Weaver uses meridian-based attacks. The key is to watch the ground for dust swirls—these indicate where she will strike next. Use your Umbrella block to reflect her mirror shards.</p>
+                `
+            },
+            'cs2-economy': {
+                title: "Sticker Slab Economy Analysis",
+                category: "Counter-Strike 2 Meta",
+                image: "a139a4fc8994a34275c17aeea9e50fe7.jpg",
+                content: `
+                    <p class="text-lg leading-relaxed mb-6">Weapon charms have finally arrived in CS2 via the "Sticker Slab" update. This has completely shifted the trading market overnight.</p>
+                    <h4 class="text-2xl font-bold mb-4">Market Impact</h4>
+                    <p class="mb-6">High-tier stickers like Titan Holos are seeing a slight dip as players shift liquidity toward the new charms. However, 'Paper' stickers are rising in value as they are required for crafting some slab bases.</p>
+                    <h4 class="text-2xl font-bold mb-4">Trading Tips</h4>
+                    <p class="mb-6">Wait for the market to stabilize before trading high-value slabs. The current 7-day trade lock is causing artificial scarcity.</p>
+                `
+            },
+            'valorant-harbor': {
+                title: "Harbor: The New Controller King",
+                category: "Valorant Rework",
+                image: "514900cd41d28c33a82aa4c6282b4fb6.jpg",
+                content: `
+                    <p class="text-lg leading-relaxed mb-6">Patch 11.10 has changed Harbor's 'Cove' and 'High Tide' in ways that make him a must-pick on Abyss and Pearl.</p>
+                    <h4 class="text-2xl font-bold mb-4">The Cove Buff</h4>
+                    <p class="mb-6">The shield now has 25% more health, allowing it to withstand a full Odin spray for much longer. This makes defuse-planting much safer in open sites.</p>
+                    <h4 class="text-2xl font-bold mb-4">Competitive Play</h4>
+                    <p class="mb-6">Pro teams are now running Harbor alongside Viper for a double-wall strategy that completely denies information to the defenders.</p>
+                `
+            }
+        };
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('page-active'));
+            document.getElementById(pageId + '-page').classList.add('page-active');
+            window.scrollTo(0, 0);
+            lucide.createIcons();
+        }
+
+        function openArticle(articleId) {
+            const article = articles[articleId];
+            if (!article) return;
+
+            const html = `
+                <span class="text-indigo-600 font-bold uppercase tracking-widest text-sm">${article.category}</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold mt-2 mb-8 leading-tight">${article.title}</h1>
+                <img src="${article.image}" onerror="this.src='https://placehold.co/800x450/e2e8f0/64748b?text=Article+Image'" class="w-full h-80 rounded-3xl shadow-xl mb-12">
+                <div class="prose prose-slate max-w-none text-slate-600">
+                    ${article.content}
+                </div>
+            `;
+
+            document.getElementById('article-content').innerHTML = html;
+            showPage('article');
+        }
     </script>
 </body>
 </html>
