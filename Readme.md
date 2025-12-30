@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags for Google -->
+    <title>Gamer Info GG | Specialized Game Intelligence Hub</title>
+    <meta name="description" content="Expert guides and meta updates for Where Winds Meet, CS2, and Valorant. Master the Jianghu and dominate the competitive shooter ladders.">
+    <meta name="keywords" content="Where Winds Meet guide, CS2 patch notes, Valorant agent tier list, Gamer Info GG">
+    <meta name="author" content="Gamer Info GG">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        h1, h2, h3, .logo-font {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        .soft-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .soft-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .accent-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        .winds-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .cs2-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .val-gradient { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
+
+        .hero-bg {
+            background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.88)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+
+        img {
+            background-color: #e2e8f0;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 font-bold text-xl tracking-tighter logo-font text-slate-900 flex items-center gap-2">
+                    <div class="w-8 h-8 accent-gradient rounded flex items-center justify-center">
+                        <i data-lucide="info" class="w-5 h-5 text-white"></i>
+                    </div>
+                    GAMER<span class="text-indigo-600">INFO.GG</span>
+                </div>
+
+                <div class="hidden lg:flex flex-1 max-w-sm mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search guides..." class="w-full bg-slate-100 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500 transition-all">
+                        <i data-lucide="search" class="absolute left-3 top-2.5 w-4 h-4 text-slate-400"></i>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-6 font-semibold uppercase text-[10px] tracking-widest text-slate-600">
+                        <a href="#winds-meet" class="hover:text-amber-600 transition-colors">Winds Meet</a>
+                        <a href="#cs2" class="hover:text-blue-600 transition-colors">CS2</a>
+                        <a href="#valorant" class="hover:text-pink-600 transition-colors">Valorant</a>
+                        <a href="#contact" class="accent-gradient text-white px-5 py-2 rounded-lg shadow-lg shadow-indigo-500/20 hover:opacity-90 transition-all">Join</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 text-slate-600">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 p-4 space-y-4 font-bold uppercase tracking-widest text-xs">
+            <a href="#winds-meet" class="block">Where Winds Meet</a>
+            <a href="#cs2" class="block">CS2</a>
+            <a href="#valorant" class="block">Valorant</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg relative pt-44 pb-32 overflow-hidden border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                LIVE: Budapest Major 2025 Picks Live
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-tight text-slate-900 uppercase">
+                Expert <span class="text-indigo-600">Intelligence</span> Hub
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+                Data-driven strategy for Where Winds Meet, CS2, and Valorant.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#winds-meet" class="px-6 py-3 bg-amber-500 text-white rounded-lg font-bold hover:bg-amber-600 transition-all flex items-center gap-2 shadow-lg shadow-amber-200">
+                    <i data-lucide="swords" class="w-4 h-4"></i> Winds Meet
+                </a>
+                <a href="#cs2" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-200">
+                    <i data-lucide="crosshair" class="w-4 h-4"></i> CS2 News
+                </a>
+                <a href="#valorant" class="px-6 py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-all flex items-center gap-2 shadow-lg shadow-pink-200">
+                    <i data-lucide="target" class="w-4 h-4"></i> Val Meta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Where Winds Meet -->
+    <section id="winds-meet" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-amber-100 pb-6">
+                <div class="w-12 h-12 winds-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-amber-200">
+                    <i data-lucide="mountain"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Where Winds Meet</h2>
+                    <p class="text-amber-600 font-bold text-xs uppercase tracking-[0.2em]">Strategy & Jianghu Secrets</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 soft-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-[450px] overflow-hidden">
+                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" 
+                             onerror="this.src='https://images.unsplash.com/photo-1524143878510-e3b8d6312402?auto=format&fit=crop&q=80&w=1200'"
+                             alt="Where Winds Meet Walkthrough" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 p-8">
+                            <span class="px-3 py-1 bg-amber-500 text-white text-[10px] font-bold rounded-full mb-4 inline-block uppercase">Featured Walkthrough</span>
+                            <h3 class="text-3xl font-bold text-white mb-2 leading-tight uppercase">The Roaring Sands Guide</h3>
+                            <p class="text-slate-200 max-w-xl">Comprehensive node map and boss strategies for the latest update.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="p-6 soft-card rounded-2xl border-l-4 border-l-amber-500">
+                        <h4 class="text-slate-900 font-bold mb-2 uppercase text-sm">NPC Tracker</h4>
+                        <p class="text-sm text-slate-500 mb-4">Location guide for Yan Qiren's Meridian training.</p>
+                        <a href="#" class="text-amber-600 text-xs font-bold uppercase flex items-center gap-1">Open <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
+                    </div>
+                    <div class="p-6 soft-card rounded-2xl border-l-4 border-l-amber-500">
+                        <h4 class="text-slate-900 font-bold mb-2 uppercase text-sm">Weapon Tiers</h4>
+                        <p class="text-sm text-slate-500 mb-4">Umbrella vs. Glaive: The current dueling meta.</p>
+                        <a href="#" class="text-amber-600 text-xs font-bold uppercase flex items-center gap-1">View <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: CS2 -->
+    <section id="cs2" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-blue-100 pb-6">
+                <div class="w-12 h-12 cs2-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+                    <i data-lucide="crosshair"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Counter-Strike 2</h2>
+                    <p class="text-blue-600 font-bold text-xs uppercase tracking-[0.2em]">Tactical Intelligence</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-5 soft-card rounded-2xl overflow-hidden group h-full min-h-[400px]">
+                    <img src="c252be2dfe782597c926652765be5bc9.jpg" 
+                         onerror="this.src='https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=1200'"
+                         alt="CS2 Gameplay" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="soft-card rounded-2xl p-8 bg-blue-600 text-white text-center">
+                        <h3 class="font-bold text-xl mb-4 uppercase tracking-widest">Budapest Major 2025</h3>
+                        <div class="flex justify-center gap-6 mb-4">
+                            <div><span class="block text-3xl font-bold">12</span><span class="text-[10px] uppercase opacity-80">Days</span></div>
+                            <div><span class="block text-3xl font-bold">08</span><span class="text-[10px] uppercase opacity-80">Hours</span></div>
+                        </div>
+                        <button class="bg-white text-blue-600 px-6 py-2 rounded-lg font-bold text-xs uppercase shadow-lg">Predictions</button>
+                    </div>
+                    <div class="soft-card rounded-2xl p-8 border-t-4 border-t-blue-500 bg-white">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4 uppercase">Sticker Slab Meta</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">How the new weapon charms are affecting skin values and trading escrow.</p>
+                        <button class="px-6 py-3 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase">Read Analysis</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Valorant -->
+    <section id="valorant" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-pink-100 pb-6">
+                <div class="w-12 h-12 val-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
+                    <i data-lucide="shield"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Valorant Meta</h2>
+                    <p class="text-pink-600 font-bold text-xs uppercase tracking-[0.2em]">Competitive Analysis</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <div class="lg:col-span-1 soft-card rounded-2xl p-6 bg-slate-50 border-pink-100">
+                    <h3 class="font-bold text-slate-900 mb-6 uppercase text-sm tracking-widest text-center">Current S-Tier</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-pink-100 shadow-sm">
+                            <span class="font-bold text-sm">Clove</span>
+                            <span class="text-[10px] text-pink-500 font-bold bg-pink-50 px-2 py-0.5 rounded-full">52%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-pink-100 shadow-sm">
+                            <span class="font-bold text-sm">Sage</span>
+                            <span class="text-[10px] text-pink-500 font-bold bg-pink-50 px-2 py-0.5 rounded-full">51%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-3">
+                    <div class="soft-card rounded-2xl p-6 flex flex-col md:flex-row gap-8 items-center bg-white h-full">
+                        <div class="w-full md:w-72 h-44 rounded-xl overflow-hidden shrink-0 shadow-lg">
+                            <img src="514900cd41d28c33a82aa4c6282b4fb6.jpg" 
+                                 onerror="this.src='https://images.unsplash.com/photo-1614014077943-840960ce671a?auto=format&fit=crop&q=80&w=600'"
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-pink-600 uppercase mb-2 block">Agent Rework</span>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2 uppercase">Harbor: The Solo Controller</h3>
+                            <p class="text-slate-500 text-sm mb-6">Mastering the Abyss and Pearl metas with the new 'Cove' buffs.</p>
+                            <a href="#" class="inline-flex items-center gap-2 text-pink-600 font-bold text-xs uppercase hover:translate-x-1 transition-transform">Patch Guide <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patch Feed -->
+    <section class="py-6 bg-slate-100 border-y border-slate-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex items-center">
+            <div class="flex-shrink-0 bg-slate-900 text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest z-10">Live</div>
+            <div class="flex-1 whitespace-nowrap relative ml-4">
+                <div class="animate-marquee inline-block text-xs font-medium text-slate-600 space-x-12">
+                    <span>CS2: Patch 1.40.2.1 live • Major Viewer Pass active</span>
+                    <span>WHERE WINDS MEET: Server maintenance Dec 30</span>
+                    <span>VALORANT: Harbor Rework rollout complete</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="font-bold text-xl tracking-tighter logo-font text-slate-900 mb-6 uppercase">
+                GAMER<span class="text-indigo-600">INFO.GG</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-8">Data-driven intelligence for the titles that matter.</p>
+            <div class="flex justify-center space-x-8 text-slate-400">
+                <a href="#" class="hover:text-indigo-600"><i data-lucide="twitch" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-indigo-600"><i data-lucide="discord" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-indigo-600"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            </div>
+            <div class="mt-12 text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">
+                Master the Meta © 2025
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
