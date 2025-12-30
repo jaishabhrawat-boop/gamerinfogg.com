@@ -165,7 +165,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 soft-card rounded-2xl overflow-hidden group">
                     <div class="relative h-[450px] overflow-hidden">
-                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" 
+                        <!-- Corrected for Where Winds Meet -->
+                        <img src="c252be2dfe782597c926652765be5bc9.jpg" 
                              onerror="this.src='https://images.unsplash.com/photo-1524143878510-e3b8d6312402?auto=format&fit=crop&q=80&w=1200'"
                              alt="Where Winds Meet Walkthrough" 
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -208,7 +209,8 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 <div class="lg:col-span-5 soft-card rounded-2xl overflow-hidden group h-full min-h-[400px]">
-                    <img src="c252be2dfe782597c926652765be5bc9.jpg" 
+                    <!-- Corrected for CS2 -->
+                    <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" 
                          onerror="this.src='https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=1200'"
                          alt="CS2 Gameplay" 
                          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
