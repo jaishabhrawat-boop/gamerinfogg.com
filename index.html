@@ -19,7 +19,7 @@
             font-family: 'Inter', sans-serif; 
             scroll-behavior: smooth; 
             background-color: #f8fafc; 
-            color: #1e293b; 
+            color: #020617; 
         }
         
         h1, h2, h3, .logo-font { 
@@ -87,9 +87,36 @@
         .page-active {
             display: block;
         }
+
+        /* Article Typography - High contrast black as requested */
+        .article-body p {
+            color: #000000;
+            margin-bottom: 1.75rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .article-body h4 {
+            color: #000000;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+        .article-body li {
+            color: #000000;
+            margin-bottom: 0.75rem;
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+        .article-body strong {
+            color: #000000;
+            font-weight: 700;
+        }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-900">
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 glass-nav">
@@ -106,9 +133,24 @@
                         <a href="#winds-meet" onclick="showPage('home')" class="hover:text-amber-600 transition-colors">Winds Meet</a>
                         <a href="#cs2" onclick="showPage('home')" class="hover:text-blue-600 transition-colors">CS2</a>
                         <a href="#valorant" onclick="showPage('home')" class="hover:text-pink-600 transition-colors">Valorant</a>
+                        <a href="javascript:void(0)" onclick="showPage('about')" class="hover:text-indigo-600 transition-colors">About</a>
+                        <a href="javascript:void(0)" onclick="showPage('contact')" class="accent-gradient text-white px-4 py-2 rounded-lg hover:opacity-90 transition-all">Contact</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-white border-b border-slate-100 p-4 space-y-4 font-bold uppercase tracking-widest text-xs">
+            <a href="#winds-meet" onclick="showPage('home'); toggleMobileMenu()" class="block">Winds Meet</a>
+            <a href="#cs2" onclick="showPage('home'); toggleMobileMenu()" class="block">CS2</a>
+            <a href="#valorant" onclick="showPage('home'); toggleMobileMenu()" class="block">Valorant</a>
+            <a href="javascript:void(0)" onclick="showPage('about'); toggleMobileMenu()" class="block">About</a>
+            <a href="javascript:void(0)" onclick="showPage('contact'); toggleMobileMenu()" class="block">Contact</a>
         </div>
     </nav>
 
@@ -120,7 +162,12 @@
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 text-slate-900 uppercase">
                     Expert <span class="text-indigo-600">Intelligence</span> Hub
                 </h1>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">Data-driven strategy for Where Winds Meet, CS2, and Valorant.</p>
+                <p class="text-lg text-slate-700 max-w-2xl mx-auto mb-10">Real-time data and tactical deep-dives for the games that define the meta.</p>
+                <div class="flex justify-center gap-4">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-slate-200 text-xs font-bold text-slate-500 uppercase">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> 1,240 Users Online
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -128,17 +175,20 @@
         <section id="winds-meet" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-amber-100 pb-6">
-                    <div class="w-12 h-12 winds-gradient rounded-xl flex items-center justify-center text-white"><i data-lucide="mountain"></i></div>
-                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Where Winds Meet</h2>
+                    <div class="w-12 h-12 winds-gradient rounded-xl flex items-center justify-center text-white shadow-lg"><i data-lucide="mountain"></i></div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Where Winds Meet</h2>
+                        <p class="text-amber-600 text-[10px] font-bold uppercase tracking-widest">Jianghu Strategy & Secrets</p>
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('winds-walkthrough')">
-                        <img src="c252be2dfe782597c926652765be5bc9.jpg" onerror="this.src='https://placehold.co/800x450/f59e0b/ffffff?text=Winds+Meet'" class="h-48 w-full object-cover">
+                    <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('winds-lion-roar')">
+                        <img src="bell2.jpg" onerror="this.src='https://placehold.co/800x450/f59e0b/ffffff?text=Winds+Meet'" class="h-48 w-full object-cover">
                         <div class="p-6">
-                            <span class="text-[10px] text-amber-600 font-bold uppercase tracking-widest">Guide</span>
-                            <h3 class="text-xl font-bold mt-2 mb-4">Roaring Sands: The River Master Walkthrough</h3>
-                            <p class="text-sm text-slate-500 mb-6">Complete node map and boss strategies for the latest update.</p>
-                            <span class="text-indigo-600 font-bold text-xs uppercase">Read More</span>
+                            <span class="text-[10px] text-amber-600 font-bold uppercase tracking-widest">Mystic Skill Guide</span>
+                            <h3 class="text-xl font-bold mt-2 mb-4">Mastering the Lion's Roar: Unlock Guide</h3>
+                            <p class="text-sm text-slate-500 mb-6 text-black">Discover the ancient copper bells of Qinghe and unlock the game's most powerful crowd-control roar.</p>
+                            <span class="text-indigo-600 font-bold text-xs uppercase inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read More <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
                         </div>
                     </div>
                 </div>
@@ -149,17 +199,20 @@
         <section id="cs2" class="py-24 bg-slate-50">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-blue-100 pb-6">
-                    <div class="w-12 h-12 cs2-gradient rounded-xl flex items-center justify-center text-white"><i data-lucide="crosshair"></i></div>
-                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Counter-Strike 2</h2>
+                    <div class="w-12 h-12 cs2-gradient rounded-xl flex items-center justify-center text-white shadow-lg"><i data-lucide="crosshair"></i></div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Counter-Strike 2</h2>
+                        <p class="text-blue-600 text-[10px] font-bold uppercase tracking-widest">Tactical Intelligence</p>
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('cs2-economy')">
                         <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" onerror="this.src='https://placehold.co/800x450/3b82f6/ffffff?text=CS2+Meta'" class="h-48 w-full object-cover">
                         <div class="p-6">
-                            <span class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Economy</span>
-                            <h3 class="text-xl font-bold mt-2 mb-4">Sticker Slab Economy Analysis</h3>
-                            <p class="text-sm text-slate-500 mb-6">How weapon charms are changing the skin trading landscape.</p>
-                            <span class="text-indigo-600 font-bold text-xs uppercase">Read More</span>
+                            <span class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Economy Report</span>
+                            <h3 class="text-xl font-bold mt-2 mb-4">The Sticker Slab Economy Shift</h3>
+                            <p class="text-sm text-slate-500 mb-6 text-black">How weapon charms are fundamentally changing skin values in the current trading landscape.</p>
+                            <span class="text-indigo-600 font-bold text-xs uppercase inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read More <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
                         </div>
                     </div>
                 </div>
@@ -170,87 +223,184 @@
         <section id="valorant" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center gap-4 mb-12 border-b-2 border-pink-100 pb-6">
-                    <div class="w-12 h-12 val-gradient rounded-xl flex items-center justify-center text-white"><i data-lucide="shield"></i></div>
-                    <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Valorant</h2>
+                    <div class="w-12 h-12 val-gradient rounded-xl flex items-center justify-center text-white shadow-lg"><i data-lucide="shield"></i></div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 uppercase tracking-tighter">Valorant</h2>
+                        <p class="text-pink-600 text-[10px] font-bold uppercase tracking-widest">Agent Meta Tracking</p>
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="soft-card rounded-2xl overflow-hidden group" onclick="openArticle('valorant-harbor')">
-                        <img src="514900cd41d28c33a82aa4c6282b4fb6.jpg" onerror="this.src='https://placehold.co/800x450/ec4899/ffffff?text=Valorant+Meta'" class="h-48 w-full object-cover">
+                        <img src="maxresdefault.jpg" onerror="this.src='https://placehold.co/800x450/ec4899/ffffff?text=Valorant+Meta'" class="h-48 w-full object-cover">
                         <div class="p-6">
-                            <span class="text-[10px] text-pink-600 font-bold uppercase tracking-widest">Rework</span>
-                            <h3 class="text-xl font-bold mt-2 mb-4">Harbor: The New Controller King</h3>
-                            <p class="text-sm text-slate-500 mb-6">Analyzing the utility buffs that made Harbor S-Tier again.</p>
-                            <span class="text-indigo-600 font-bold text-xs uppercase">Read More</span>
+                            <span class="text-[10px] text-pink-600 font-bold uppercase tracking-widest">Technical Deep-Dive</span>
+                            <h3 class="text-xl font-bold mt-2 mb-4">Harbor: Dominating the New Controller Meta</h3>
+                            <p class="text-sm text-slate-500 mb-6 text-black">Analyzing the massive buffs to Harbor's Cove and Tide that have redefined Abyss play.</p>
+                            <span class="text-indigo-600 font-bold text-xs uppercase inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read More <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patch Feed Ticker -->
+        <section class="py-12 bg-slate-900 text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 flex items-center">
+                <div class="flex-shrink-0 bg-indigo-600 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mr-8">Live Feed</div>
+                <div class="flex-1 whitespace-nowrap relative">
+                    <div class="animate-marquee inline-block text-xs font-bold space-x-12 opacity-80 uppercase tracking-widest">
+                        <span>CS2: Sticker Slab Patch 1.40 Live</span>
+                        <span>WHERE WINDS MEET: Lion Roar Activation Quest Fix</span>
+                        <span>VALORANT: Harbor 'Cove' Health Buff Deployed</span>
+                        <span>CS2: Legacy Skin Texture Optimization</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- ABOUT PAGE -->
+    <main id="about-page" class="page-content pt-32 pb-24">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-bold uppercase tracking-widest text-sm">Our Mission</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold mt-2 uppercase">About Gamer Info GG</h1>
+            </div>
+            <div class="soft-card p-12 rounded-3xl leading-relaxed text-black space-y-6">
+                <p class="text-lg font-bold">Gamer Info GG is the primary intelligence hub for serious gamers tracking the fastest-moving metas in the industry.</p>
+                <p>We specialize in three massive pillars of modern gaming: the open-world Wuxia mastery of <strong>Where Winds Meet</strong>, the tactical precision of <strong>Counter-Strike 2</strong>, and the agent-driven meta of <strong>Valorant</strong>.</p>
+                <p>Our team consists of high-rank players and data analysts dedicated to providing guides that aren't just fluff, but actionable technical data you can use to win. We believe that in the modern era of gaming, information is the strongest weapon in any player's arsenal.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- CONTACT PAGE -->
+    <main id="contact-page" class="page-content pt-32 pb-24">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-bold uppercase tracking-widest text-sm">Feedback & Support</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold mt-2 uppercase">Get In Touch</h1>
+            </div>
+            <form class="soft-card p-8 rounded-3xl space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Name</label>
+                    <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all text-black">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Email</label>
+                    <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all text-black">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Message</label>
+                    <textarea rows="5" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all text-black"></textarea>
+                </div>
+                <button type="button" class="w-full accent-gradient text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-indigo-100 hover:opacity-90 transition-all">Send Transmission</button>
+            </form>
+        </div>
+    </main>
+
     <!-- ARTICLE PAGE -->
     <main id="article-page" class="page-content pt-32 pb-24">
         <div class="max-w-4xl mx-auto px-4">
-            <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-bold mb-8 hover:gap-3 transition-all">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+            <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-bold mb-8 hover:gap-3 transition-all uppercase text-xs">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Intelligence Feed
             </button>
-            
-            <div id="article-content">
-                <!-- Content injected by JS -->
-            </div>
+            <div id="article-content" class="article-body"></div>
         </div>
     </main>
 
     <footer class="py-16 bg-white border-t border-slate-100 text-center">
         <div class="font-bold text-xl tracking-tighter logo-font text-slate-900 mb-6 uppercase">GAMER<span class="text-indigo-600">INFO.GG</span></div>
-        <p class="text-slate-400 text-sm">© 2025 Gamer Info GG</p>
+        <p class="text-slate-400 text-sm">© 2025 Gamer Info GG | Master the Meta</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
         const articles = {
-            'winds-walkthrough': {
-                title: "Roaring Sands: The River Master Walkthrough",
-                category: "Where Winds Meet Guide",
-                image: "c252be2dfe782597c926652765be5bc9.jpg",
+            'winds-lion-roar': {
+                title: "Echoes of the Great Enlightenment: Unlocking Lion's Roar",
+                category: "Where Winds Meet Walkthrough",
+                image: "bell2.jpg",
                 content: `
-                    <p class="text-lg leading-relaxed mb-6">The Roaring Sands expansion for Where Winds Meet has introduced a massive new desert territory and the complex "River Master" questline. This guide breaks down the essential nodes you need to find.</p>
-                    <h4 class="text-2xl font-bold mb-4">Finding the First Node</h4>
-                    <p class="mb-6">Start at the Northern Oasis. You'll need the "Wind Step" ability at Level 3 to reach the high-altitude temple where the River Master resides.</p>
-                    <h4 class="text-2xl font-bold mb-4">Boss Strategy: The Mirage Weaver</h4>
-                    <p class="mb-6">The Weaver uses meridian-based attacks. The key is to watch the ground for dust swirls—these indicate where she will strike next. Use your Umbrella block to reflect her mirror shards.</p>
+                    <p>In the vast, wind-swept world of <strong>Where Winds Meet</strong>, the <strong>Lion's Roar</strong> stands as one of the most coveted Mystic Skills. Inspired by the legendary Buddhist lore where the teachings of the Buddha are described as a "thunderous roar" that cuts through the fog of delusion, this skill is a tactical powerhouse designed for both area denial and crowd control.</p>
+                    
+                    <h4>The Quest for the Four Copper Bells</h4>
+                    <p>Unlike many skills locked behind rigid narrative milestones, Lion's Roar is a reward for the diligent explorer. To obtain it, you must locate and strike <strong>four giant copper bells</strong> hidden across the Qinghe region. There is no specific order required; ringing all four once on a single character is enough to unlock the skill automatically.</p>
+                    
+                    <ul>
+                        <li><strong>Copper Bell 1:</strong> Mounted on the west wall of General's Shrine. This is usually the first one players encounter, as it overlooks the bustling starting area of Central Qinghe.</li>
+                        <li><strong>Copper Bell 2:</strong> Perched on a high hill just south of the General's Shrine. A short climb or a skilled ride will take you to this overlook, which provides a panoramic view of the shrine below.</li>
+                        <li><strong>Copper Bell 3:</strong> Located in the northeastern Qinghe district, specifically south of Buddha Fort. Look for the landmark on your map; the bell sits just below the primary fort structure.</li>
+                        <li><strong>Copper Bell 4:</strong> Found tucked away in an abandoned residence within the Witherwilds subregion. This is south of Moonveil Mountain and requires a keen eye to spot among the overgrown structures.</li>
+                    </ul>
+
+                    <h4>Combat Mechanics & Mastery</h4>
+                    <p>Lion's Roar is an Offensive Area Debuff skill with a <strong>30 Vitality</strong> cost and a 12-second cooldown at Tier 4. The move unfolds in two critical stages:</p>
+                    
+                    <ul>
+                        <li><strong>The Bell Slam:</strong> A close-range spectral hit that knocks enemies back and interrupts incoming attacks.</li>
+                        <li><strong>The Roar:</strong> Emits a sound wave that hits <strong>14 times</strong> in a wide radius, allowing you to stack damage rapidly.</li>
+                    </ul>
+
+                    <h4>Breakthrough Tiers</h4>
+                    <ul>
+                        <li><strong>Tier 2:</strong> Improves Tenacity while casting.</li>
+                        <li><strong>Tier 3:</strong> Hitting a target 5 or more times inflicts <strong>Silence for 3 seconds</strong>, shutting down enemy skills.</li>
+                        <li><strong>Tier 4:</strong> Damage Reduction while casting jumps to <strong>40%</strong>, making you nearly invincible during the roar.</li>
+                    </ul>
+
+                    <p><strong>Status Synergy:</strong> Hitting a target affected by <strong>Toad Venom</strong> detonates the venom, spreading it to others and significantly increasing the roar's damage output.</p>
                 `
             },
             'cs2-economy': {
-                title: "Sticker Slab Economy Analysis",
-                category: "Counter-Strike 2 Meta",
+                title: "The Source 2 Shift: Analyzing the Sticker Slab Economy",
+                category: "Counter-Strike 2 Economy Report",
                 image: "a139a4fc8994a34275c17aeea9e50fe7.jpg",
                 content: `
-                    <p class="text-lg leading-relaxed mb-6">Weapon charms have finally arrived in CS2 via the "Sticker Slab" update. This has completely shifted the trading market overnight.</p>
-                    <h4 class="text-2xl font-bold mb-4">Market Impact</h4>
-                    <p class="mb-6">High-tier stickers like Titan Holos are seeing a slight dip as players shift liquidity toward the new charms. However, 'Paper' stickers are rising in value as they are required for crafting some slab bases.</p>
-                    <h4 class="text-2xl font-bold mb-4">Trading Tips</h4>
-                    <p class="mb-6">Wait for the market to stabilize before trading high-value slabs. The current 7-day trade lock is causing artificial scarcity.</p>
+                    <p>For over a decade, the Counter-Strike economy revolved around two axes: weapon skins and static stickers. The <strong>Sticker Slab</strong> and Weapon Charm update has introduced a third dimension that is fundamentally reshaping the market landscape. This isn't just a new cosmetic; it's a new asset class with its own volatility and speculation rules.</p>
+                    
+                    <h4>The Allure of Physicality</h4>
+                    <p>Unlike stickers, which are simple texture overlays, charms utilize the full capabilities of the Source 2 physics engine. They dangle, bounce, and react to every movement, reload, and inspection. This physical presence has created a "Premium on Detail." Collectors are currently targeting 'Small Seed' charms that feature unique wear patterns or rare color shifts—a level of micro-speculation we haven't seen since the 'Blue Gem' Case Hardened era.</p>
+                    
+                    <h4>Market Cannibalization vs. Synergy</h4>
+                    <p>We've observed a fascinating trend: high-tier stickers like Titan Holos are experiencing a slight liquidity dip. Investors are liquidating portions of their sticker portfolios to enter the charm market. However, "blank canvas" skins like the AK-47 Slate or the M4A1-S Night Terror are seeing a significant uptick in price. Players want skins that don't distract from the Slab customization, turning formerly cheap "filler" skins into desirable bases.</p>
+                    
+                    <h4>The 7-Day Escrow Effect</h4>
+                    <p>Valve's strict 7-day trade lock on new items is currently creating a massive "Supply Lag." This artificial scarcity keeps prices inflated for the first month of a new collection. Tactical investors are advised to wait for the "Second Wave" drop, where the initial hype dies down and the market finds its true floor. If you're looking for long-term holds, focus on 'Gold' variant charms, as history suggests limited-time metallic variants maintain the highest value retention.</p>
+                    
+                    <h4>Competitive Advantage?</h4>
+                    <p>While cosmetic, the Sticker Slab has a psychological component in professional play. Some players are using specific Slab placements to act as a "visual anchor" for their eye during spray transitions. By placing a high-contrast charm near the ejection port, players can create a subconscious reference point for their crosshair height during long-range spray downs. While anecdotal, the adoption of specific "Slab-Setups" among Tier-1 pros suggests that even cosmetics have a place in the tactical toolbox.</p>
                 `
             },
             'valorant-harbor': {
-                title: "Harbor: The New Controller King",
-                category: "Valorant Rework",
-                image: "514900cd41d28c33a82aa4c6282b4fb6.jpg",
+                title: "Tidal Shift: How Harbor Redefined the Abyss Controller Meta",
+                category: "Valorant Tactical Deep-Dive",
+                image: "maxresdefault.jpg",
                 content: `
-                    <p class="text-lg leading-relaxed mb-6">Patch 11.10 has changed Harbor's 'Cove' and 'High Tide' in ways that make him a must-pick on Abyss and Pearl.</p>
-                    <h4 class="text-2xl font-bold mb-4">The Cove Buff</h4>
-                    <p class="mb-6">The shield now has 25% more health, allowing it to withstand a full Odin spray for much longer. This makes defuse-planting much safer in open sites.</p>
-                    <h4 class="text-2xl font-bold mb-4">Competitive Play</h4>
-                    <p class="mb-6">Pro teams are now running Harbor alongside Viper for a double-wall strategy that completely denies information to the defenders.</p>
+                    <p>After being relegated to the "niche pick" category for nearly a year, Harbor has surged into the S-Tier spotlight following the massive changes in Patch 11.10. Riot's surgical buffs to <strong>Cove</strong> and <strong>High Tide</strong> didn't just help the agent; they changed the way high-level Valorant is played on maps like Abyss, Pearl, and Sunset.</p>
+                    
+                    <h4>The 25% Cove Solution</h4>
+                    <p>The single most impactful change was increasing the health of Harbor's 'Cove' shield by 25%. In the previous meta, a single player with a Phantom could spray down the shield fast enough to kill the person planting the spike. With the new health pool, it now requires dedicated fire from at least two defenders or an entire magazine from an Odin. This forces the defending team to spend high-value utility—like a Sova Shock Dart or a Raze Paint Shells—just to contest a standard plant.</p>
+                    
+                    <h4>Abyss: The Controller's Playground</h4>
+                    <p>On the new map Abyss, Harbor is arguably the most valuable agent on the roster. The verticality and the narrow bridges make traditional dome-smokes less effective. Harbor’s ability to "bend" his High Tide wall allows him to create tunnels of safety across the bridge sections, completely denying information to defenders. Pro teams like Fnatic and Gen.G have been experimenting with "Double-Wall" compositions, pairing Harbor with Viper to create a visual cage that makes the site-hit nearly impossible to read from the defender's perspective.</p>
+                    
+                    <h4>The Return of the Retake</h4>
+                    <p>Harbor’s buffs have also made him a defensive powerhouse during retakes. The increased slow duration on his walls means attackers can no longer "swing through" the wall to take an aggressive duel. If an attacker touches the water now, they are effectively a stationary target for three full seconds. We are seeing a shift where Harbor players save their 'Cascade' (the moving wave) specifically for the post-plant, using it to push attackers out of their hiding spots like a slow-moving battering ram.</p>
+                    
+                    <h4>Countering the Wave</h4>
+                    <p>The "Harbor Meta" has indirectly brought KAY/O and Fade back into the fold. KAY/O’s suppression is the only reliable way to stop Harbor from curving a wall mid-deployment, and Fade’s 'Prowlers' are essential for clearing the corners that Harbor’s walls create. If you're playing against a Harbor, your priority must be utility-drain: force him to use his Cove early, or you'll never stop the plant.</p>
                 `
             }
         };
 
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('page-active'));
-            document.getElementById(pageId + '-page').classList.add('page-active');
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.add('page-active');
+            }
             window.scrollTo(0, 0);
             lucide.createIcons();
         }
@@ -261,15 +411,20 @@
 
             const html = `
                 <span class="text-indigo-600 font-bold uppercase tracking-widest text-sm">${article.category}</span>
-                <h1 class="text-4xl md:text-5xl font-extrabold mt-2 mb-8 leading-tight">${article.title}</h1>
+                <h1 class="text-4xl md:text-5xl font-extrabold mt-2 mb-8 leading-tight text-slate-900 uppercase">${article.title}</h1>
                 <img src="${article.image}" onerror="this.src='https://placehold.co/800x450/e2e8f0/64748b?text=Article+Image'" class="w-full h-80 rounded-3xl shadow-xl mb-12">
-                <div class="prose prose-slate max-w-none text-slate-600">
+                <div class="max-w-none article-body">
                     ${article.content}
                 </div>
             `;
 
             document.getElementById('article-content').innerHTML = html;
             showPage('article');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
     </script>
 </body>
