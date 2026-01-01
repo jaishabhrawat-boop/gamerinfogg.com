@@ -20,6 +20,7 @@
             scroll-behavior: smooth; 
             background-color: #f8fafc; 
             color: #020617; 
+            overflow-x: hidden;
         }
         
         h1, h2, h3, .logo-font { 
@@ -32,16 +33,10 @@
             border: 1px solid #e2e8f0; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
             transition: all 0.3s ease; 
-            cursor: pointer;
-        }
-        
-        .soft-card:hover { 
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
-            transform: translateY(-2px); 
         }
         
         .glass-nav { 
-            background: rgba(255, 255, 255, 0.9); 
+            background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(12px); 
             border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
         }
@@ -54,21 +49,12 @@
         .cs2-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
         .val-gradient { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
         
-        /* Hero Background */
         .hero-bg { 
-            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('5f021a52772543c2d4452cda849a9da5.jpg');
+            background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.8)), url('5f021a52772543c2d4452cda849a9da5.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
             position: relative;
-        }
-
-        .hero-pattern {
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px);
-            background-size: 32px 32px;
-            opacity: 0.1;
         }
 
         @keyframes marquee { 
@@ -87,25 +73,28 @@
         .page-content { display: none; }
         .page-active { display: block; }
 
+        /* High-contrast Typography for Content */
         .article-body p {
             color: #000000;
-            margin-bottom: 1.75rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 600;
         }
         .article-body h4 {
             color: #000000;
-            margin-top: 2.5rem;
-            margin-bottom: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             text-transform: uppercase;
         }
         .article-body li {
             color: #000000;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             list-style-type: disc;
-            margin-left: 1.5rem;
+            margin-left: 1.25rem;
+            font-weight: 600;
         }
 
         .mystery-player {
@@ -125,114 +114,112 @@
         }
     </style>
 </head>
-<body class="text-slate-950">
+<body>
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div onclick="showPage('home')" class="flex-shrink-0 font-bold text-xl tracking-tighter logo-font text-slate-900 flex items-center gap-2 cursor-pointer">
-                    <div class="w-8 h-8 accent-gradient rounded flex items-center justify-center">
-                        <i data-lucide="info" class="w-5 h-5 text-white"></i>
+            <div class="flex justify-between h-16 md:h-20 items-center">
+                <div onclick="showPage('home')" class="flex-shrink-0 font-bold text-lg md:text-xl tracking-tighter logo-font text-slate-900 flex items-center gap-2 cursor-pointer">
+                    <div class="w-7 h-7 md:w-8 md:h-8 accent-gradient rounded flex items-center justify-center">
+                        <i data-lucide="info" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
                     </div>
-                    GAMER<span class="text-indigo-600">INFO.GG</span>
+                    GAMER<span class="text-indigo-600">INFO</span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="flex items-baseline space-x-6 font-semibold uppercase text-[10px] tracking-widest text-slate-600">
-                        <a href="#winds-meet" onclick="showPage('home')" class="hover:text-amber-600 transition-colors">Winds Meet</a>
-                        <a href="#cs2" onclick="showPage('home')" class="hover:text-blue-600 transition-colors">CS2</a>
-                        <a href="#valorant" onclick="showPage('home')" class="hover:text-pink-600 transition-colors">Valorant</a>
-                        <a href="javascript:void(0)" onclick="showPage('about')" class="hover:text-indigo-600 transition-colors">About</a>
-                        <a href="javascript:void(0)" onclick="showPage('contact')" class="accent-gradient text-white px-4 py-2 rounded-lg hover:opacity-90 transition-all">Contact</a>
+                
+                <div class="hidden lg:block">
+                    <div class="flex items-center space-x-6 font-bold uppercase text-[10px] tracking-widest text-slate-600">
+                        <a href="#winds-meet" onclick="showPage('home')" class="hover:text-amber-600">Winds Meet</a>
+                        <a href="#cs2" onclick="showPage('home')" class="hover:text-blue-600">CS2</a>
+                        <a href="#valorant" onclick="showPage('home')" class="hover:text-pink-600">Valorant</a>
+                        <a href="javascript:void(0)" onclick="showPage('about')" class="hover:text-indigo-600">About</a>
+                        <a href="javascript:void(0)" onclick="showPage('contact')" class="accent-gradient text-white px-4 py-2 rounded-lg">Contact</a>
                     </div>
                 </div>
-                <div class="md:hidden">
-                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600">
-                        <i data-lucide="menu"></i>
-                    </button>
-                </div>
+
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-900">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
             </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-4 py-6 space-y-4 font-black uppercase tracking-widest text-xs shadow-xl text-black">
+            <a href="#winds-meet" onclick="showPage('home'); toggleMobileMenu()" class="block py-2 border-b border-slate-50">Winds Meet</a>
+            <a href="#cs2" onclick="showPage('home'); toggleMobileMenu()" class="block py-2 border-b border-slate-50">CS2</a>
+            <a href="#valorant" onclick="showPage('home'); toggleMobileMenu()" class="block py-2 border-b border-slate-50">Valorant</a>
+            <a href="javascript:void(0)" onclick="showPage('about'); toggleMobileMenu()" class="block py-2 border-b border-slate-50">About</a>
+            <a href="javascript:void(0)" onclick="showPage('contact'); toggleMobileMenu()" class="block py-2 text-indigo-600">Contact</a>
         </div>
     </nav>
 
     <!-- HOME PAGE -->
     <main id="home-page" class="page-content page-active">
-        <section class="hero-bg relative pt-64 pb-52 border-b border-slate-900">
-            <div class="hero-pattern"></div>
+        <!-- Hero: Background Image container removed, text now sits clean -->
+        <section class="hero-bg relative pt-32 pb-24 md:pt-64 md:pb-52 border-b border-slate-900">
             <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
-                <div class="bg-black/30 backdrop-blur-xl inline-block p-10 md:p-16 rounded-[48px] border border-white/20 shadow-2xl">
-                    <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 text-white uppercase italic text-black">
-                        Expert <span class="text-indigo-400">Intelligence</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-slate-100 max-w-2xl mx-auto font-light tracking-wide uppercase text-white">Tactical data & meta analysis hub.</p>
-                </div>
+                <h1 class="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 md:mb-6 text-slate-950 uppercase italic leading-none">
+                    Expert <span class="text-indigo-600">Intelligence</span>
+                </h1>
+                <p class="text-sm md:text-xl lg:text-2xl text-slate-700 max-w-2xl mx-auto font-bold tracking-wide uppercase">Tactical data & meta analysis hub.</p>
             </div>
         </section>
 
-        <!-- HOME FEED -->
-        <section class="py-24 max-w-7xl mx-auto px-4">
+        <section class="py-12 md:py-24 max-w-7xl mx-auto px-4 space-y-16 md:space-y-32">
             
             <!-- Winds Meet Section -->
-            <div id="winds-meet" class="mb-32 p-8 bg-amber-50/30 rounded-[40px] border border-amber-100/50">
-                <div class="flex items-center gap-4 mb-10 pb-6 border-b border-amber-200">
-                    <div class="w-12 h-12 winds-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-amber-200/50"><i data-lucide="mountain"></i></div>
+            <div id="winds-meet" class="p-4 md:p-8 bg-amber-50/40 rounded-3xl md:rounded-[40px] border border-amber-100">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-amber-200">
+                    <div class="w-10 h-10 md:w-12 md:h-12 winds-gradient rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg"><i data-lucide="mountain" class="w-5 h-5 md:w-6 md:h-6"></i></div>
                     <div>
-                        <h2 class="text-3xl font-black uppercase tracking-tighter text-slate-900 italic">Where Winds Meet</h2>
-                        <p class="text-amber-600 text-[10px] font-bold uppercase tracking-[0.3em]">Jianghu Meta Intelligence</p>
+                        <h2 class="text-xl md:text-3xl font-black uppercase tracking-tighter text-slate-900 italic">Where Winds Meet</h2>
+                        <p class="text-amber-600 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">Jianghu Meta Intelligence</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Article -->
-                    <div class="soft-card rounded-[32px] overflow-hidden group" onclick="openArticle('winds-lion-roar')">
-                        <div class="relative h-64">
-                            <img src="bell2.jpg" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-4 left-4 bg-amber-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Featured</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('winds-lion-roar')">
+                        <div class="relative h-48 md:h-64">
+                            <img src="bell2.jpg" class="h-full w-full object-cover">
+                            <div class="absolute top-3 left-3 bg-amber-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase">Featured</div>
                         </div>
-                        <div class="p-8 text-black">
-                            <span class="text-[10px] text-amber-600 font-black uppercase tracking-widest">Mastery Guide</span>
-                            <h3 class="text-2xl font-black mt-2 uppercase leading-tight italic text-black">Lion's Roar: Unlock Path</h3>
-                            <span class="text-indigo-600 font-bold text-xs uppercase mt-6 inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform text-black">Begin Training <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                        <div class="p-6">
+                            <span class="text-[9px] text-amber-600 font-black uppercase tracking-widest">Mastery Guide</span>
+                            <h3 class="text-xl font-black mt-1 uppercase italic leading-tight text-black">Lion's Roar Path</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-4 inline-flex items-center gap-2 text-black">Begin Training <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
                         </div>
                     </div>
-                    <!-- Discovery Widget -->
-                    <div class="soft-card rounded-[32px] p-8 flex flex-col justify-between bg-white border-amber-100">
-                        <div>
-                            <div class="flex justify-between items-center mb-8">
-                                <span class="text-[10px] font-black uppercase tracking-widest text-amber-600">Qinghe Discovery</span>
-                                <i data-lucide="compass" class="w-5 h-5 text-amber-500"></i>
+                    <!-- Discovery Widget Updated with User's specific Data -->
+                    <div class="soft-card rounded-3xl p-6 bg-white flex flex-col justify-between">
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-amber-600 mb-6 flex justify-between items-center">Discovery <i data-lucide="compass" class="w-4 h-4"></i></h4>
+                        <div class="space-y-6 text-black font-bold">
+                            <div>
+                                <div class="flex justify-between mb-1.5"><span class="text-[9px] font-black uppercase">Skill Theft</span><span class="text-[9px] font-black">4/4</span></div>
+                                <div class="progress-bar"><div class="progress-fill bg-amber-500 w-full"></div></div>
                             </div>
-                            <div class="space-y-8 text-black font-bold">
-                                <div>
-                                    <div class="flex justify-between mb-2"><span class="text-[10px] font-black uppercase text-black">Skill Theft</span><span class="text-xs font-black text-black">4/4</span></div>
-                                    <div class="progress-bar"><div class="progress-fill bg-amber-500 w-[100%]"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-2"><span class="text-[10px] font-black uppercase text-black">Mystic Arts</span><span class="text-xs font-black text-black">2/8</span></div>
-                                    <div class="progress-bar"><div class="progress-fill bg-amber-500 w-[25%]"></div></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-2"><span class="text-[10px] font-black uppercase text-black">Innerways</span><span class="text-xs font-black text-black">6/20</span></div>
-                                    <div class="progress-bar"><div class="progress-fill bg-slate-950 w-[30%]"></div></div>
-                                </div>
+                            <div>
+                                <div class="flex justify-between mb-1.5"><span class="text-[9px] font-black uppercase">Mystic Arts</span><span class="text-[9px] font-black">2/8</span></div>
+                                <div class="progress-bar"><div class="progress-fill bg-amber-400 w-1/4"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1.5"><span class="text-[9px] font-black uppercase">Innerways</span><span class="text-[9px] font-black">6/20</span></div>
+                                <div class="progress-bar"><div class="progress-fill bg-slate-900 w-[30%]"></div></div>
                             </div>
                         </div>
                     </div>
-                    <!-- Combat Trends -->
-                    <div class="soft-card rounded-[32px] p-8 bg-slate-950 text-white overflow-hidden relative">
-                        <div class="absolute -right-8 -bottom-8 opacity-10"><i data-lucide="swords" class="w-32 h-32 text-white"></i></div>
-                        <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-6 block text-center">Top DPS Builds</span>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                                <span class="text-xs font-black uppercase tracking-tight text-white">Strategic Sword</span>
-                                <span class="text-[10px] bg-green-500/20 text-green-400 px-2 py-1 rounded-md font-black uppercase">S-TIER</span>
+                    <!-- Combat Trends Updated with User's specific Data -->
+                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white">
+                        <span class="text-[9px] font-black uppercase tracking-widest text-amber-400 mb-4 block">Top DPS Builds</span>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                                <span class="text-[10px] font-black uppercase">Strategic Sword</span>
+                                <span class="text-[8px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded font-black">S-TIER</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                                <span class="text-xs font-black uppercase tracking-tight text-white">Twinblade</span>
-                                <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-1 rounded-md font-black uppercase">A-TIER</span>
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                                <span class="text-[10px] font-black uppercase">Twinblade</span>
+                                <span class="text-[8px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded font-black">A-TIER</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                                <span class="text-xs font-black uppercase tracking-tight text-white">Vernal Umbrella</span>
-                                <span class="text-[10px] bg-amber-500/20 text-amber-400 px-2 py-1 rounded-md font-black uppercase">B-TIER</span>
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                                <span class="text-[10px] font-black uppercase">Vernal Umbrella</span>
+                                <span class="text-[8px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded font-black">B-TIER</span>
                             </div>
                         </div>
                     </div>
@@ -240,110 +227,87 @@
             </div>
 
             <!-- CS2 Section -->
-            <div id="cs2" class="mb-32 p-8 bg-blue-50/30 rounded-[40px] border border-blue-100/50">
-                <div class="flex items-center gap-4 mb-10 pb-6 border-b border-blue-200">
-                    <div class="w-12 h-12 cs2-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-blue-200/50"><i data-lucide="crosshair"></i></div>
+            <div id="cs2" class="p-4 md:p-8 bg-blue-50/40 rounded-3xl md:rounded-[40px] border border-blue-100">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-blue-200">
+                    <div class="w-10 h-10 md:w-12 md:h-12 cs2-gradient rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg"><i data-lucide="crosshair" class="w-5 h-5 md:w-6 md:h-6"></i></div>
                     <div>
-                        <h2 class="text-3xl font-black uppercase tracking-tighter text-slate-900 italic">Counter-Strike 2</h2>
-                        <p class="text-blue-600 text-[10px] font-bold uppercase tracking-[0.3em]">Tactical Infrastructure</p>
+                        <h2 class="text-xl md:text-3xl font-black uppercase tracking-tighter text-slate-900 italic">Counter-Strike 2</h2>
+                        <p class="text-blue-600 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">Tactical Infrastructure</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Article -->
-                    <div class="soft-card rounded-[32px] overflow-hidden group" onclick="openArticle('cs2-economy')">
-                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" class="h-64 w-full object-cover">
-                        <div class="p-8 text-black">
-                            <span class="text-[10px] text-blue-600 font-black uppercase tracking-widest">Market Analysis</span>
-                            <h3 class="text-2xl font-black mt-2 uppercase italic text-black">The Sticker Slab Shift</h3>
-                            <span class="text-indigo-600 font-bold text-xs uppercase mt-6 block text-black">Read Intel</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer" onclick="openArticle('cs2-economy')">
+                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" class="h-48 md:h-64 w-full object-cover">
+                        <div class="p-6">
+                            <span class="text-[9px] text-blue-600 font-black uppercase tracking-widest">Economy Shift</span>
+                            <h3 class="text-xl font-black mt-1 uppercase italic leading-tight text-black">Sticker Slabs</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-4 block text-black">Read Intel</span>
                         </div>
                     </div>
-                    <!-- HLTV Tracker - FULL PODIUM LOCKED -->
-                    <div class="soft-card rounded-[32px] p-8 bg-slate-950 text-white flex flex-col justify-between border-blue-500/20 border">
-                        <div>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-400">HLTV Tracker</span>
-                            <h3 class="text-xl font-black leading-tight uppercase italic mb-8 text-white">2025 Player <br> of the Year</h3>
-                            <div class="space-y-4">
-                                <!-- Slot #1: Donk -->
-                                <div class="flex items-center gap-4">
-                                    <span class="text-2xl font-black text-amber-500 italic">01</span>
-                                    <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" onerror="this.classList.add('mystery-player')" class="w-12 h-12 rounded-xl border border-white/10 object-cover">
-                                    <span class="text-xs font-black uppercase tracking-tight text-white">Donk</span>
-                                </div>
-                                <!-- Slot #2: ZywOo -->
-                                <div class="flex items-center gap-4">
-                                    <span class="text-2xl font-black text-slate-400 italic">02</span>
-                                    <img src="OIP (1).webp.png" onerror="this.classList.add('mystery-player')" class="w-12 h-12 rounded-xl border border-white/10 object-cover">
-                                    <span class="text-xs font-black uppercase tracking-tight text-white">ZywOo</span>
-                                </div>
-                                <!-- Slot #3: m0NESY -->
-                                <div class="flex items-center gap-4">
-                                    <span class="text-2xl font-black text-amber-700 italic">03</span>
-                                    <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" onerror="this.classList.add('mystery-player')" class="w-12 h-12 rounded-xl border border-white/10 object-cover">
-                                    <span class="text-xs font-black uppercase tracking-tight text-white">m0NESY</span>
-                                </div>
+                    <!-- HLTV podium -->
+                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white">
+                        <span class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-6 flex justify-between items-center">HLTV Tracker <i data-lucide="award" class="w-4 h-4 text-amber-500"></i></span>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-black text-amber-500 italic">01</span>
+                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
+                                <span class="text-[10px] font-black uppercase">Donk</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-black text-slate-400 italic">02</span>
+                                <img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
+                                <span class="text-[10px] font-black uppercase">ZywOo</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-xl font-black text-amber-700 italic">03</span>
+                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
+                                <span class="text-[10px] font-black uppercase">m0NESY</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Pulse -->
-                    <div class="soft-card rounded-[32px] p-8 bg-white border-blue-100 flex flex-col items-center justify-center text-center">
-                        <h4 class="text-xs font-black uppercase mb-2 tracking-widest text-black">Market Pulse</h4>
-                        <div class="text-5xl font-black text-blue-600 mb-2 italic">+14.2%</div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest text-black">Glove Case Trading Volume</p>
+                    <div class="soft-card rounded-3xl p-6 bg-white border border-blue-100 text-center">
+                        <h4 class="text-[9px] font-black uppercase mb-2 text-slate-400">Market Pulse</h4>
+                        <div class="text-4xl font-black text-blue-600 mb-1 italic text-black">+14.2%</div>
+                        <p class="text-[8px] text-slate-400 font-bold uppercase">Glove Case (24h)</p>
                     </div>
                 </div>
             </div>
 
             <!-- Valorant Section -->
-            <div id="valorant" class="mb-20 p-8 bg-pink-50/30 rounded-[40px] border border-pink-100/50">
-                <div class="flex items-center gap-4 mb-10 pb-6 border-b border-pink-200">
-                    <div class="w-12 h-12 val-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-pink-200/50"><i data-lucide="shield"></i></div>
+            <div id="valorant" class="p-4 md:p-8 bg-pink-50/40 rounded-3xl md:rounded-[40px] border border-pink-100">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-pink-200">
+                    <div class="w-10 h-10 md:w-12 md:h-12 val-gradient rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg"><i data-lucide="shield" class="w-5 h-5 md:w-6 md:h-6"></i></div>
                     <div>
-                        <h2 class="text-3xl font-black uppercase tracking-tighter text-slate-900 italic">Valorant Meta</h2>
-                        <p class="text-pink-600 text-[10px] font-bold uppercase tracking-[0.3em]">Competitive Analysis</p>
+                        <h2 class="text-xl md:text-3xl font-black uppercase tracking-tighter text-slate-900 italic">Valorant Meta</h2>
+                        <p class="text-pink-600 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">Competitive Analysis</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Article -->
-                    <div class="soft-card rounded-[32px] overflow-hidden group" onclick="openArticle('valorant-harbor')">
-                        <img src="maxresdefault.jpg" class="h-64 w-full object-cover">
-                        <div class="p-8 text-black">
-                            <span class="text-[10px] text-pink-600 font-black uppercase tracking-widest">Strategy Update</span>
-                            <h3 class="text-2xl font-black mt-2 uppercase italic leading-tight text-black">Harbor: Abyss Mastery</h3>
-                            <span class="text-indigo-600 font-bold text-xs uppercase mt-6 block text-black">View Tactics</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer" onclick="openArticle('valorant-harbor')">
+                        <img src="maxresdefault.jpg" class="h-48 md:h-64 w-full object-cover">
+                        <div class="p-6">
+                            <span class="text-[9px] text-pink-600 font-black uppercase tracking-widest">Tactics</span>
+                            <h3 class="text-xl font-black mt-1 uppercase italic leading-tight text-black">Harbor Mastery</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-4 block text-black">View Guide</span>
                         </div>
                     </div>
-                    <!-- Global Pick Rates -->
-                    <div class="soft-card rounded-[32px] p-8 bg-white border-pink-100 text-black">
-                        <div class="flex justify-between items-center mb-8">
-                            <h3 class="text-[10px] font-black uppercase tracking-widest text-pink-600">Global Pick Rates</h3>
-                            <span class="text-[9px] bg-pink-600 text-white px-3 py-1 rounded-full font-black uppercase">v11.10</span>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-pink-50 text-black">
-                                <span class="text-sm font-black uppercase text-black">Harbor</span>
-                                <span class="text-[12px] text-pink-500 font-black italic">64.5%</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-100 shadow-sm text-black">
-                                <span class="text-sm font-black uppercase text-black">Jett</span>
-                                <span class="text-[12px] text-slate-600 font-bold text-black text-black">52.1%</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-100 shadow-sm text-black">
-                                <span class="text-sm font-black uppercase text-black">Clove</span>
-                                <span class="text-[12px] text-slate-600 font-bold text-black text-black">48.2%</span>
-                            </div>
+                    <div class="soft-card rounded-3xl p-6 bg-white border border-pink-100">
+                        <h4 class="text-[9px] font-black uppercase text-pink-600 mb-6 border-b border-pink-50 pb-2">Global Pick Rates</h4>
+                        <div class="space-y-4 font-bold text-black">
+                            <div class="flex justify-between items-center"><span class="text-[10px] font-black uppercase">Harbor</span><span class="text-[10px] text-pink-500 font-black italic">64.5%</span></div>
+                            <div class="flex justify-between items-center"><span class="text-[10px] font-black uppercase">Jett</span><span class="text-[10px] font-slate-600 font-black">52.1%</span></div>
+                            <div class="flex justify-between items-center"><span class="text-[10px] font-black uppercase">Clove</span><span class="text-[10px] font-slate-600 font-black">48.2%</span></div>
                         </div>
                     </div>
-                    <!-- Map Pool (6 Maps) -->
-                    <div class="soft-card rounded-[32px] p-8 bg-slate-950 text-white">
-                        <h3 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6">Active Map Pool</h3>
-                        <div class="grid grid-cols-2 gap-3 text-[9px] font-black text-center uppercase italic">
-                            <div class="p-3 bg-white/5 rounded-xl border border-pink-500/40 text-white">Abyss</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-white">Pearl</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-white">Sunset</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-white">Ascent</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-white">Bind</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-white">Haven</div>
+                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white">
+                        <h4 class="text-[9px] font-black uppercase text-slate-400 mb-6 italic">Active Map Pool</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="p-2 bg-white/5 rounded border border-pink-500/20 text-[8px] font-black text-center uppercase">Abyss</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase">Pearl</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase">Sunset</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase">Ascent</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase">Bind</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase">Haven</div>
                         </div>
                     </div>
                 </div>
@@ -352,56 +316,47 @@
     </main>
 
     <!-- ARTICLE PAGE -->
-    <main id="article-page" class="page-content pt-32 pb-24">
+    <main id="article-page" class="page-content pt-20 md:pt-32 pb-24">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-8">
-                    <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-black mb-8 hover:gap-4 transition-all uppercase text-[10px] tracking-widest text-black">
-                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Return to Feed
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                
+                <div class="lg:col-span-8 order-1">
+                    <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-black mb-6 uppercase text-[9px] tracking-widest text-black">
+                        <i data-lucide="arrow-left" class="w-3 h-3"></i> Feed
                     </button>
-                    <div id="article-content" class="article-body text-black"></div>
+                    <div id="article-content" class="article-body"></div>
                 </div>
-                <aside class="lg:col-span-4 space-y-8">
-                    <!-- Dynamic HLTV Top 3 Sidebar (All Locked) -->
-                    <div id="hltv-sidebar-widget" class="hidden soft-card rounded-[32px] p-8 bg-slate-950 text-white border-blue-500/20 border">
-                        <h4 class="logo-font text-[10px] font-black uppercase tracking-widest text-blue-400 mb-6 border-b border-white/10 pb-4 italic">HLTV Rankings 2025</h4>
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                                <div class="flex items-center gap-4"><span class="text-3xl font-black text-amber-500 italic">1</span><img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-xl object-cover"><div class="text-[10px] font-black uppercase text-white tracking-widest">Donk</div></div>
-                                <i data-lucide="check-circle" class="w-4 h-4 text-green-500 opacity-50"></i>
-                            </div>
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                                <div class="flex items-center gap-4"><span class="text-3xl font-black text-slate-400 italic text-white">2</span><img src="OIP (1).webp.png" class="w-10 h-10 rounded-xl object-cover"><div class="text-[10px] font-black uppercase text-white tracking-widest">ZywOo</div></div>
-                                <i data-lucide="check-circle" class="w-4 h-4 text-green-500 opacity-50"></i>
-                            </div>
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                                <div class="flex items-center gap-4"><span class="text-3xl font-black text-amber-700 italic text-white">3</span><img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-xl object-cover"><div class="text-[10px] font-black uppercase text-white tracking-widest">m0NESY</div></div>
-                                <i data-lucide="check-circle" class="w-4 h-4 text-green-500 opacity-50"></i>
-                            </div>
+
+                <aside class="lg:col-span-4 space-y-6 order-2">
+                    <div id="hltv-sidebar-widget" class="hidden soft-card rounded-3xl p-6 bg-slate-950 text-white border-blue-500/20 border">
+                        <h4 class="text-[9px] font-black uppercase text-blue-400 mb-6 border-b border-white/5 pb-2 italic">Podium Status</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4"><span class="text-xl font-black text-amber-500 italic">1</span><img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[9px] font-black uppercase">Donk</span></div>
+                            <div class="flex items-center gap-4"><span class="text-xl font-black text-slate-400 italic">2</span><img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[9px] font-black uppercase">ZywOo</span></div>
+                            <div class="flex items-center gap-4"><span class="text-xl font-black text-amber-700 italic">3</span><img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[9px] font-black uppercase">m0NESY</span></div>
                         </div>
                     </div>
                     
-                    <div class="soft-card rounded-[32px] p-8 bg-white border border-slate-100 shadow-sm text-black">
-                        <h4 class="logo-font text-[10px] font-black uppercase tracking-widest text-slate-400 mb-8 border-b border-slate-50 pb-4 italic text-black">Related Intel</h4>
-                        <div id="related-articles-container" class="space-y-8 text-black"></div>
+                    <div class="soft-card rounded-3xl p-6 bg-white border border-slate-100">
+                        <h4 class="text-[9px] font-black uppercase text-slate-400 mb-6 border-b border-slate-50 pb-2 italic text-black">Related Intel</h4>
+                        <div id="related-articles-container" class="space-y-6 text-black"></div>
                     </div>
 
-                    <div class="soft-card rounded-[32px] p-8 bg-slate-950 text-white">
-                        <h4 class="logo-font text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-6 italic">Meta Pulse</h4>
-                        <div id="meta-pulse-content" class="space-y-4"></div>
+                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white">
+                        <h4 class="text-[9px] font-black uppercase text-indigo-400 mb-4 italic">Meta Pulse</h4>
+                        <div id="meta-pulse-content" class="space-y-3"></div>
                     </div>
                 </aside>
             </div>
         </div>
     </main>
 
-    <!-- OTHER PAGES -->
-    <main id="about-page" class="page-content pt-32 pb-24"><div class="max-w-4xl mx-auto px-4 text-center"><h1 class="text-6xl font-black mb-12 uppercase italic text-black">About The Hub</h1><div class="soft-card p-12 rounded-[48px] text-left text-slate-950 leading-relaxed font-bold text-black"><p>Gamer Info GG is the primary intelligence hub for serious gamers tracking the fastest-moving metas in the industry.</p></div></div></main>
-    <main id="contact-page" class="page-content pt-32 pb-24"><div class="max-w-2xl mx-auto px-4 text-center"><h1 class="text-6xl font-black mb-12 uppercase italic text-black text-black text-black">Join Us</h1><form class="soft-card p-10 rounded-[48px] space-y-6 text-black"><input type="text" placeholder="Callsign" class="w-full bg-slate-50 border p-4 rounded-2xl text-black font-bold uppercase"><button class="w-full accent-gradient text-white py-5 rounded-2xl font-black uppercase italic tracking-widest shadow-xl shadow-indigo-100">Send Frequency</button></form></div></main>
+    <main id="about-page" class="page-content pt-32 pb-24 text-center px-4"><h1 class="text-3xl md:text-5xl font-black mb-8 uppercase italic text-black">About</h1><div class="soft-card p-8 rounded-3xl max-w-2xl mx-auto text-left font-bold text-black"><p>Precision intelligence hub for serious gamers.</p></div></main>
+    <main id="contact-page" class="page-content pt-32 pb-24 text-center px-4"><h1 class="text-3xl md:text-5xl font-black mb-8 uppercase italic text-black">Contact</h1><form class="soft-card p-6 md:p-8 rounded-3xl max-w-md mx-auto space-y-4"><input type="text" placeholder="Name" class="w-full bg-slate-50 border p-3 rounded-xl font-bold uppercase text-black"><button class="w-full accent-gradient text-white py-4 rounded-xl font-black uppercase italic">Send</button></form></div></main>
 
-    <footer class="py-24 bg-white border-t border-slate-100 text-center text-black">
-        <div class="font-black text-2xl tracking-tighter logo-font text-slate-900 mb-8 uppercase italic text-black">GAMER<span class="text-indigo-600">INFO.GG</span></div>
-        <p class="text-slate-400 text-xs font-bold uppercase tracking-[0.4em] text-black">© 2025 Gamer Info GG | Zero Delay Intel</p>
+    <footer class="py-12 bg-white border-t border-slate-100 text-center px-4">
+        <div class="font-black text-xl logo-font text-slate-900 mb-4 uppercase italic">GAMER<span class="text-indigo-600">INFO</span></div>
+        <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.3em]">© 2025 Gamer Info GG | Zero Delay</p>
     </footer>
 
     <script>
@@ -413,23 +368,18 @@
                 title: "Echoes of Enlightenment: Unlocking Lion's Roar",
                 game: "Winds Meet",
                 image: "bell2.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-black font-bold"><span class="text-[10px] text-white/40 uppercase font-black">Vitality Cost</span><span class="text-xs font-black text-amber-400 uppercase italic text-black">30 PT</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2"><span class="text-[9px] uppercase font-black opacity-40">Vitality Cost</span><span class="text-[10px] font-black text-amber-400 italic">30 PT</span></div>`,
                 content: `
-                    <p>To obtain the legendary <strong>Lion's Roar</strong>, you must locate and interact with <strong>four giant copper bells</strong> scattered across the Qinghe region. You do not need to activate them in a particular order; simply ringing all four once on a single character is enough to unlock the skill automatically.</p>
-                    <h4>Bell Locations in Qinghe</h4>
+                    <p>To obtain the legendary <strong>Lion's Roar</strong>, you must locate and interact with <strong>four giant copper bells</strong> scattered across the Qinghe region. Ringing all four once on a single character is enough to unlock the skill automatically.</p>
+                    <h4>Locations in Qinghe</h4>
                     <ul>
-                        <li><strong>Copper Bell 1:</strong> Mounted on the west wall of General's Shrine, in the first main town you visit. (Central Qinghe).</li>
-                        <li><strong>Copper Bell 2:</strong> On the hill south of General's Shrine, slightly higher elevation than the town itself.</li>
-                        <li><strong>Copper Bell 3:</strong> South of Buddha Fort in northeastern Qinghe. Look just below the landmark.</li>
-                        <li><strong>Copper Bell 4:</strong> Inside an abandoned residence in the Witherwilds area (Southwest of Moonveil Mountain).</li>
+                        <li><strong>Copper Bell 1:</strong> Mounted on the west wall of General's Shrine.</li>
+                        <li><strong>Copper Bell 2:</strong> On the hill south of General's Shrine.</li>
+                        <li><strong>Copper Bell 3:</strong> South of Buddha Fort in northeastern Qinghe.</li>
+                        <li><strong>Copper Bell 4:</strong> Inside an abandoned residence in the Witherwilds area.</li>
                     </ul>
-                    <h4>Combat Functionality</h4>
-                    <p>Lion's Roar is an Offensive, Area Debuff Mystic Skill. It has a 12-second cooldown at Tier 4. The move hits <strong>14 times</strong> in a wide area, making it perfect for chewing through clustered enemies or proccing Silence.</p>
-                    <h4>Breakthrough Bonuses</h4>
-                    <ul>
-                        <li><strong>Tier 3:</strong> Land 5 hits to inflict 3 seconds of <strong>Silence</strong>.</li>
-                        <li><strong>Tier 4:</strong> Increases <strong>Damage Reduction</strong> while casting from 15% to a massive 40%.</li>
-                    </ul>
+                    <h4>Tactical Intelligence</h4>
+                    <p>The move hits <strong>14 times</strong> in a wide area, making it perfect for chewing through clustered enemies or proccing Silence at breakthrough Tier 3.</p>
                 `
             },
             'cs2-economy': {
@@ -438,13 +388,11 @@
                 game: "CS2",
                 image: "a139a4fc8994a34275c17aeea9e50fe7.jpg",
                 showHltv: true,
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-black font-bold"><span class="text-[10px] text-white/40 uppercase font-black text-black">Charm Floor</span><span class="text-xs font-black text-blue-400 uppercase italic text-black">$4.20</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2"><span class="text-[9px] uppercase font-black opacity-40">Charm Floor</span><span class="text-[10px] font-black text-blue-400 italic">$4.20</span></div>`,
                 content: `
-                    <p>The introduction of <strong>Sticker Slabs</strong> has fundamentally shifted the CS2 economy. Charms are physical items that dangle and react to every movement, inspection, and reload, creating a high premium on detail.</p>
-                    <h4>Investment Trends</h4>
-                    <p>We've observed high-tier static stickers seeing a liquidity dip as collectors pivot toward 'Small Seed' charms. Rare patterns are already trading for hundreds of dollars above floor price.</p>
-                    <h4>Pro Performance Impact</h4>
-                    <p>Top players are using charms as visual anchors. By placing specific charms near the ejection port, players can maintain consistent crosshair placement during movement. It's a subtle but effective psychological advantage.</p>
+                    <p>The introduction of <strong>Sticker Slabs</strong> has shifted the CS2 economy. Charms are physical items that react to movement and weapon inspection.</p>
+                    <h4>Technical Analysis</h4>
+                    <p>Unlike stickers, charms react to Source 2 physics. Collectors are pivoting toward 'Small Seed' charms. High-tier static stickers are seeing a liquidity dip as a result.</p>
                 `
             },
             'valorant-harbor': {
@@ -452,13 +400,11 @@
                 title: "Tidal Shift: Harbor Redefines Abyss",
                 game: "Valorant",
                 image: "maxresdefault.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-black font-bold text-black"><span class="text-[10px] text-white/40 uppercase font-black text-black">Pick Rate</span><span class="text-xs font-black text-pink-400 uppercase italic text-black text-black">64.5%</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2"><span class="text-[9px] uppercase font-black opacity-40">Pick Rate</span><span class="text-[10px] font-black text-pink-400 italic">64.5%</span></div>`,
                 content: `
-                    <p>Harbor has surged into the S-Tier spotlight after Patch 11.10. The <strong>25% health increase</strong> to his Cove shield has changed how teams approach plants on maps like Abyss and Pearl.</p>
-                    <h4>The Abyss Meta</h4>
-                    <p>On Abyss, Harbor is nearly a must-pick. His ability to curve walls around vertical terrain and create 'tunnels of safety' across narrow bridges allows for rotations that were previously impossible.</p>
-                    <h4>Double-Wall Strategy</h4>
-                    <p>Pro teams are pairing Harbor with Viper. This composition creates a visual cage that denies information entirely to defenders, making retakes a nightmare for the opposing side.</p>
+                    <p>Harbor is now S-Tier. The <strong>25% health increase</strong> to his Cove shield changed how teams approach plants on maps like Abyss.</p>
+                    <h4>Map Control Evolution</h4>
+                    <p>His ability to curve walls around vertical terrain create 'tunnels of safety' across bridges previously dangerous to cross.</p>
                 `
             }
         };
@@ -474,12 +420,14 @@
         function openArticle(articleId) {
             const art = articles[articleId];
             if (!art) return;
+            
             document.getElementById('article-content').innerHTML = `
-                <span class="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] text-black font-bold">${art.game} Intelligence</span>
-                <h1 class="text-5xl md:text-6xl font-black mt-4 mb-8 uppercase leading-[0.95] text-slate-950 italic text-black text-black font-bold">${art.title}</h1>
-                <img src="${art.image}" class="w-full h-[500px] rounded-[48px] shadow-2xl mb-12">
-                <div class="article-body text-black font-bold text-black">${art.content}</div>
+                <span class="text-indigo-600 font-black uppercase tracking-[0.2em] text-[8px] text-black font-bold">${art.game} Intel</span>
+                <h1 class="text-3xl md:text-6xl font-black mt-2 mb-6 md:mb-8 uppercase leading-[1] text-slate-950 italic text-black">${art.title}</h1>
+                <img src="${art.image}" class="w-full h-56 md:h-[500px] rounded-2xl md:rounded-[48px] shadow-2xl mb-8 md:mb-12">
+                <div class="article-body text-black">${art.content}</div>
             `;
+            
             document.getElementById('meta-pulse-content').innerHTML = art.metaPulse;
             const hltvWidget = document.getElementById('hltv-sidebar-widget');
             if (art.showHltv) hltvWidget.classList.remove('hidden'); 
@@ -487,21 +435,23 @@
 
             const relatedContainer = document.getElementById('related-articles-container');
             const related = Object.values(articles).filter(a => a.game === art.game && a.id !== art.id);
-            if (related.length > 0) {
-                relatedContainer.innerHTML = related.map(rel => `
-                    <div class="flex gap-4 group cursor-pointer" onclick="openArticle('${rel.id}')">
-                        <div class="w-16 h-16 rounded-2xl overflow-hidden shrink-0 shadow-lg text-black"><img src="${rel.image}" class="w-full h-full object-cover"></div>
-                        <div><h5 class="text-sm font-black leading-tight group-hover:text-indigo-600 transition-colors uppercase italic text-black text-black">${rel.title}</h5><span class="text-[9px] text-indigo-500 font-black uppercase tracking-widest text-black">Read Now</span></div>
-                    </div>
-                `).join('');
-            } else {
-                relatedContainer.innerHTML = `<p class="text-xs text-slate-400 italic text-black text-black">Tracking more ${art.game} intel...</p>`;
-            }
+            relatedContainer.innerHTML = related.length > 0 ? related.map(rel => `
+                <div class="flex gap-3 group cursor-pointer" onclick="openArticle('${rel.id}')">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden shrink-0 shadow-lg"><img src="${rel.image}" class="w-full h-full object-cover"></div>
+                    <div><h5 class="text-xs font-black leading-tight uppercase italic text-black">${rel.title}</h5><span class="text-[8px] text-indigo-500 font-bold uppercase">View Intel</span></div>
+                </div>
+            `).join('') : '<p class="text-[9px] text-slate-400 italic text-black">Tracking more intel...</p>';
+
             showPage('article');
         }
 
         function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            const isHidden = menu.classList.contains('hidden');
+            icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+            lucide.createIcons();
         }
     </script>
 </body>
