@@ -32,9 +32,15 @@
             background: white; 
             border: 1px solid #e2e8f0; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
-            height: 100%; /* Force cards to fill height */
-            display: flex;
-            flex-direction: column;
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            transition: all 0.3s ease;
+        }
+        
+        .soft-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
         }
         
         .glass-nav { 
@@ -51,7 +57,6 @@
         .cs2-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
         .val-gradient { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
         
-        /* Updated: Pure White Hero Background */
         .hero-bg { 
             background-color: #ffffff;
             position: relative;
@@ -73,7 +78,6 @@
         .page-content { display: none; }
         .page-active { display: block; }
 
-        /* Article Typography - Bold Black */
         .article-body p {
             color: #000000;
             margin-bottom: 1.5rem;
@@ -83,10 +87,10 @@
         }
         .article-body h4 {
             color: #000000;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
         }
         .article-body li {
@@ -95,22 +99,6 @@
             list-style-type: disc;
             margin-left: 1.25rem;
             font-weight: 600;
-        }
-
-        .mystery-player {
-            filter: grayscale(1) brightness(0.5);
-            background: #1e293b;
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background: #f1f5f9;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            transition: width 1s ease-in-out;
         }
     </style>
 </head>
@@ -133,7 +121,7 @@
                         <a href="#cs2" onclick="showPage('home')" class="hover:text-blue-600">CS2</a>
                         <a href="#valorant" onclick="showPage('home')" class="hover:text-pink-600">Valorant</a>
                         <a href="javascript:void(0)" onclick="showPage('about')" class="hover:text-indigo-600">About</a>
-                        <a href="javascript:void(0)" onclick="showPage('contact')" class="accent-gradient text-white px-4 py-2 rounded-lg">Contact</a>
+                        <a href="javascript:void(0)" onclick="showPage('contact')" class="accent-gradient text-white px-4 py-2 rounded-lg shadow-sm">Contact</a>
                     </div>
                 </div>
 
@@ -143,7 +131,7 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-4 py-6 space-y-4 font-black uppercase tracking-widest text-xs shadow-xl text-black">
             <a href="#winds-meet" onclick="showPage('home'); toggleMobileMenu()" class="block py-2 border-b border-slate-50">Winds Meet</a>
             <a href="#cs2" onclick="showPage('home'); toggleMobileMenu()" class="block py-2 border-b border-slate-50">CS2</a>
@@ -155,7 +143,7 @@
 
     <!-- HOME PAGE -->
     <main id="home-page" class="page-content page-active">
-        <!-- Hero: CLEAN WHITE BACKGROUND -->
+        <!-- Hero: CLEAN WHITE BG, NO DARK BOX -->
         <section class="hero-bg relative pt-32 pb-24 md:pt-60 md:pb-48 border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <h1 class="text-4xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-4 md:mb-6 text-slate-950 uppercase italic leading-none">
@@ -167,14 +155,14 @@
 
         <section class="py-12 md:py-24 max-w-7xl mx-auto px-4 space-y-20 md:space-y-32">
             
-            <!-- Where Winds Meet Section -->
+            <!-- Winds Meet Section -->
             <div id="winds-meet" class="space-y-10">
                 <div class="flex items-center gap-4 border-b-4 border-amber-500 pb-4 w-fit">
                     <div class="w-10 h-10 winds-gradient rounded-lg flex items-center justify-center text-white"><i data-lucide="mountain"></i></div>
                     <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tighter italic">Where Winds Meet</h2>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                    <!-- Article -->
+                    <!-- Main Card -->
                     <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('winds-lion-roar')">
                         <div class="relative h-56 md:h-64">
                             <img src="bell2.jpg" class="h-full w-full object-cover">
@@ -186,9 +174,9 @@
                             <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-6 inline-flex items-center gap-2">Begin Training <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                         </div>
                     </div>
-                    <!-- Discovery Widget -->
+                    <!-- Discovery Widget: Top Aligned -->
                     <div class="soft-card rounded-3xl p-8 bg-slate-50 border-slate-200">
-                        <h4 class="text-[11px] font-black uppercase tracking-widest text-amber-600 mb-8 flex justify-between items-center border-b border-amber-100 pb-4">Discovery Tracker <i data-lucide="compass" class="w-5 h-5"></i></h4>
+                        <h4 class="text-[11px] font-black uppercase tracking-widest text-amber-600 mb-8 flex justify-between items-center border-b border-amber-100 pb-4 text-black">Discovery Tracker <i data-lucide="compass" class="w-5 h-5"></i></h4>
                         <div class="space-y-8 flex-1 font-black text-slate-950 uppercase">
                             <div>
                                 <div class="flex justify-between mb-2"><span class="text-[10px]">Skill Theft</span><span class="text-[10px]">4/4</span></div>
@@ -204,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Combat Widget -->
+                    <!-- Combat Widget: Top Aligned -->
                     <div class="soft-card rounded-3xl p-8 bg-slate-950 text-white">
                         <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-6 block border-b border-white/10 pb-4">Top DPS Builds</span>
                         <div class="space-y-4 flex-1">
@@ -231,42 +219,51 @@
                     <div class="w-10 h-10 cs2-gradient rounded-lg flex items-center justify-center text-white"><i data-lucide="crosshair"></i></div>
                     <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tighter italic">Counter-Strike 2</h2>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                    <!-- Article -->
-                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer" onclick="openArticle('cs2-economy')">
-                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" class="h-56 md:h-64 w-full object-cover">
-                        <div class="p-8 flex-1 flex flex-col">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+                    <!-- NEW ARTICLE: Weapon Tier List -->
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('cs2-weapon-tier')">
+                        <img src="Screenshot 2026-01-03 105035.jpg" class="h-48 md:h-56 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
+                            <span class="text-[10px] text-blue-600 font-black uppercase tracking-widest">Equipment Hub</span>
+                            <h3 class="text-xl font-black mt-2 uppercase italic leading-tight">2026 Weapon Tiers</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-4">View Full List</span>
+                        </div>
+                    </div>
+                    <!-- Existing Article: Economy -->
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('cs2-economy')">
+                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" class="h-48 md:h-56 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
                             <span class="text-[10px] text-blue-600 font-black uppercase tracking-widest">Global Market</span>
-                            <h3 class="text-2xl font-black mt-2 uppercase italic leading-tight text-slate-900">Sticker Slab Meta</h3>
-                            <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-6">Read Intelligence</span>
+                            <h3 class="text-xl font-black mt-2 uppercase italic leading-tight">Sticker Slab Meta</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-4">Read Intel</span>
                         </div>
                     </div>
-                    <!-- HLTV Tracker - FULL PODIUM -->
-                    <div class="soft-card rounded-3xl p-8 bg-slate-950 text-white border-blue-500/20 border">
-                        <span class="text-[11px] font-black uppercase tracking-widest text-blue-400 mb-8 flex justify-between items-center border-b border-white/5 pb-4">HLTV Top 3 (2025) <i data-lucide="award" class="w-5 h-5 text-amber-500"></i></span>
-                        <div class="space-y-5 flex-1">
-                            <div class="flex items-center gap-5">
-                                <span class="text-3xl font-black text-amber-500 italic">01</span>
-                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-14 h-14 rounded-2xl object-cover border border-white/10 shadow-2xl">
-                                <span class="text-xs font-black uppercase italic">Donk</span>
+                    <!-- HLTV Tracker -->
+                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white border-blue-500/20 border">
+                        <span class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-6 flex justify-between items-center border-b border-white/5 pb-2">HLTV Top 3 <i data-lucide="award" class="w-4 h-4 text-amber-500"></i></span>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-black text-amber-500 italic">01</span>
+                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
+                                <span class="text-[10px] font-black uppercase italic">Donk</span>
                             </div>
-                            <div class="flex items-center gap-5">
-                                <span class="text-3xl font-black text-slate-400 italic">02</span>
-                                <img src="OIP (1).webp.png" class="w-14 h-14 rounded-2xl object-cover border border-white/10 shadow-2xl">
-                                <span class="text-xs font-black uppercase italic">ZywOo</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-black text-slate-400 italic">02</span>
+                                <img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
+                                <span class="text-[10px] font-black uppercase italic">ZywOo</span>
                             </div>
-                            <div class="flex items-center gap-5">
-                                <span class="text-3xl font-black text-amber-700 italic">03</span>
-                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-14 h-14 rounded-2xl object-cover border border-white/10 shadow-2xl">
-                                <span class="text-xs font-black uppercase italic">m0NESY</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-black text-amber-700 italic">03</span>
+                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
+                                <span class="text-[10px] font-black uppercase italic">m0NESY</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Market Tracker -->
-                    <div class="soft-card rounded-3xl p-8 bg-slate-50 border-slate-200 text-center flex flex-col justify-center">
-                        <h4 class="text-[11px] font-black uppercase mb-4 text-slate-400 tracking-[0.2em]">Market Pulse</h4>
-                        <div class="text-6xl md:text-7xl font-black text-blue-600 mb-2 italic">+14.2%</div>
-                        <p class="text-[10px] text-slate-500 font-black uppercase tracking-widest">Glove Case Trading Volume</p>
+                    <!-- Market Pulse -->
+                    <div class="soft-card rounded-3xl p-6 bg-slate-50 border-slate-200 text-center flex flex-col justify-center">
+                        <h4 class="text-[10px] font-black uppercase mb-3 text-slate-400 tracking-widest">Market Pulse</h4>
+                        <div class="text-5xl font-black text-blue-600 mb-1 italic">+14.2%</div>
+                        <p class="text-[9px] text-slate-500 font-bold uppercase">Glove Case Vol.</p>
                     </div>
                 </div>
             </div>
@@ -287,10 +284,10 @@
                         </div>
                     </div>
                     <div class="soft-card rounded-3xl p-8 bg-white border-pink-50 flex flex-col">
-                        <h4 class="text-[11px] font-black uppercase text-pink-600 mb-8 border-b border-pink-50 pb-4 italic">Global Pick Rates</h4>
+                        <h4 class="text-[11px] font-black uppercase text-pink-600 mb-8 border-b border-pink-50 pb-4 italic text-black">Global Pick Rates</h4>
                         <div class="space-y-6 text-slate-950 font-black flex-1 uppercase">
                             <div class="flex justify-between items-center border-b border-slate-50 pb-2"><span class="text-sm italic">Harbor</span><span class="text-xl text-pink-600 italic">64.5%</span></div>
-                            <div class="flex justify-between items-center border-b border-slate-50 pb-2"><span class="text-sm italic">Jett</span><span class="text-xl text-slate-500 italic">52.1%</span></div>
+                            <div class="flex justify-between items-center border-b border-slate-50 pb-2"><span class="text-sm italic">Jett</span><span class="text-xl text-slate-400 italic">52.1%</span></div>
                             <div class="flex justify-between items-center"><span class="text-sm italic">Clove</span><span class="text-xl text-slate-500 italic">48.2%</span></div>
                         </div>
                     </div>
@@ -316,7 +313,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
                 <div class="lg:col-span-8 order-1">
                     <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-black mb-8 uppercase text-[10px] tracking-widest hover:gap-4 transition-all">
-                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Intelligence Feed
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Hub
                     </button>
                     <div id="article-content" class="article-body"></div>
                 </div>
@@ -329,7 +326,7 @@
                             <div class="flex items-center gap-5"><span class="text-2xl font-black text-amber-700 italic text-white">3</span><img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-12 h-12 rounded-xl object-cover border border-white/5 shadow-lg"><span class="text-[11px] font-black uppercase italic">m0NESY</span></div>
                         </div>
                     </div>
-                    <div class="soft-card rounded-[32px] p-8 bg-white border border-slate-100 shadow-sm">
+                    <div class="soft-card rounded-[32px] p-8 bg-white border border-slate-100 shadow-sm text-black">
                         <h4 class="text-[11px] font-black uppercase text-slate-400 mb-8 border-b border-slate-50 pb-4 italic">Related Intel</h4>
                         <div id="related-articles-container" class="space-y-8"></div>
                     </div>
@@ -356,18 +353,18 @@
                 title: "Echoes of Enlightenment: Unlocking Lion's Roar",
                 game: "Winds Meet",
                 image: "bell2.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2"><span class="text-[10px] uppercase font-black text-white/40">Vitality Cost</span><span class="text-[11px] font-black text-amber-400 italic">30 PT</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 font-bold text-white"><span class="text-[10px] uppercase font-black opacity-40">Vitality Cost</span><span class="text-[11px] font-black text-amber-400 italic">30 PT</span></div>`,
                 content: `
-                    <p>To obtain the legendary <strong>Lion's Roar</strong>, you must locate and interact with <strong>four giant copper bells</strong> scattered across the Qinghe region. Ringing all four once on a single character is enough to unlock the skill automatically.</p>
+                    <p>To obtain the legendary <strong>Lion's Roar</strong>, you must locate and interact with <strong>four giant copper bells</strong> scattered across the Qinghe region. You do not need to activate them in a particular order; ringing all four once on a single character is enough to unlock the skill automatically.</p>
                     <h4>Locations in Qinghe</h4>
                     <ul>
-                        <li><strong>Copper Bell 1:</strong> Mounted on the west wall of General's Shrine (Central Region).</li>
-                        <li><strong>Copper Bell 2:</strong> Hill south of General's Shrine (High Elevation).</li>
-                        <li><strong>Copper Bell 3:</strong> South of Buddha Fort (Northeastern District).</li>
-                        <li><strong>Copper Bell 4:</strong> Inside an abandoned residence in Witherwilds.</li>
+                        <li><strong>Copper Bell 1:</strong> Mounted on the west wall of General's Shrine (Central Town).</li>
+                        <li><strong>Copper Bell 2:</strong> On the hill south of General's Shrine (Short climb away).</li>
+                        <li><strong>Copper Bell 3:</strong> South of Buddha Fort Landmark (Northeastern region).</li>
+                        <li><strong>Copper Bell 4:</strong> Inside an abandoned residence in Witherwilds (Southwest of Moonveil Mountain).</li>
                     </ul>
                     <h4>Combat Statistics</h4>
-                    <p>The Lion's Roar functions as a massive AoE crowd control ability. It deals immediate damage and knockback upon impact, followed by a sonic wave that hits <strong>14 times</strong>. Master players use this to detonate <strong>Toad Venom</strong> for massive multiplier damage.</p>
+                    <p>The Lion's Roar functions as a massive AoE crowd control ability. It deals immediate damage and knockback upon impact, followed by a sonic wave that hits <strong>14 times</strong> over its duration. Master players use this to detonate <strong>Toad Venom</strong> for massive multiplier damage.</p>
                 `
             },
             'cs2-economy': {
@@ -376,11 +373,67 @@
                 game: "CS2",
                 image: "a139a4fc8994a34275c17aeea9e50fe7.jpg",
                 showHltv: true,
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2"><span class="text-[10px] uppercase font-black text-white/40">Charm Floor</span><span class="text-[11px] font-black text-blue-400 italic">$4.20</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 font-bold text-white"><span class="text-[10px] uppercase font-black opacity-40">Charm Floor</span><span class="text-[11px] font-black text-blue-400 italic">$4.20</span></div>`,
                 content: `
                     <p>The introduction of <strong>Sticker Slabs</strong> has shifted the CS2 economy. Charms are physical items that react to Source 2 physics, inspection animations, and weapon physics.</p>
                     <h4>Technical Intel</h4>
                     <p>Unlike static stickers, charms are being used as "visual anchors" by pro players. High-tier static stickers are seeing a liquidity dip as investors pivot toward 'Small Seed' charms which offer unique metallic finishes.</p>
+                `
+            },
+            'cs2-weapon-tier': {
+                id: 'cs2-weapon-tier',
+                title: "CS2 Weapon Tier List (2026): The Best Guns to Win More Rounds",
+                game: "CS2",
+                image: "Screenshot 2026-01-03 105035.jpg",
+                showHltv: true,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 font-bold text-white"><span class="text-[10px] uppercase font-black opacity-40">T-Side Meta</span><span class="text-[11px] font-black text-red-400 italic">AK-47</span></div>`,
+                content: `
+                    <p>Every Counter-Strike meta eventually comes down to one thing: your weapon choice. In Counter-Strike 2, some guns can single-handedly swing a round, while others feel like you’re handicapping yourself the moment you buy them.</p>
+                    <p>This CS2 weapon tier list breaks down which guns are actually worth your money, based on real in-game impact, consistency, and how often they show up in competitive play.</p>
+                    
+                    <h4>CS2 Weapon Tier Overview</h4>
+                    <ul>
+                        <li><strong>S-Tier:</strong> AWP, AK-47, M4A1-S, Desert Eagle</li>
+                        <li><strong>A-Tier:</strong> M4A4, FAMAS, Galil AR, Tec-9, Five-SeveN, MP9, MAC-10, SSG 08, Glock-18, USP-S</li>
+                        <li><strong>B-Tier:</strong> SG 553, AUG, Nova, Dual Berettas, SCAR-20, G3SG1, XM1014, MAG-7, P250</li>
+                        <li><strong>C-Tier:</strong> CZ-75 Auto, P90, MP5, MP7, PP-Bizon, UMP-45, P2000</li>
+                        <li><strong>D-Tier:</strong> R8 Revolver, M249, Negev</li>
+                    </ul>
+
+                    <h4>S-Tier Weapons (Meta-Defining Picks)</h4>
+                    <p><strong>AWP:</strong> The AWP remains the most influential gun in CS2. One clean shot is all it takes, and on the right player, it can completely shut down a map. It’s expensive, but the pressure it creates is unmatched.</p>
+                    <p><strong>AK-47:</strong> The backbone of the T side. One-tap potential at any range, strong spray control, and insane value for its price. If you’re buying rifles as a Terrorist, this is always the first choice.</p>
+                    <p><strong>M4A1-S:</strong> Low recoil, excellent accuracy, and a suppressor that keeps you hidden. The M4A1-S rewards disciplined aim and positioning, making it the most reliable CT rifle in the current meta.</p>
+                    <p><strong>Desert Eagle:</strong> High risk, massive reward. The Deagle can flip eco rounds in seconds if your aim is sharp. It’s unforgiving, but no pistol strikes fear quite like this one.</p>
+
+                    <h4>A-Tier Weapons (Reliable & Versatile)</h4>
+                    <p><strong>M4A4:</strong> More bullets, faster fire rate, and better for holding tight angles. If you prefer longer sprays and site anchoring, the M4A4 still holds its ground.</p>
+                    <p><strong>FAMAS:</strong> Not flashy, but dependable. When money is tight on CT side, the FAMAS lets you stay competitive without fully committing to a save.</p>
+                    <p><strong>Galil AR:</strong> One of the best value rifles in the game. Cheap, forgiving, and surprisingly effective for entry fragging when an AK isn’t affordable.</p>
+                    <p><strong>Tec-9 & Five-SeveN:</strong> These pistols shine in force-buy rounds. Mobile, aggressive, and deadly up close, they give eco rounds real upset potential.</p>
+                    <p><strong>MP9 & MAC-10:</strong> The kings of anti-eco. High fire rate, huge kill rewards, and deadly against unarmored opponents. Perfect for farming money and momentum.</p>
+                    <p><strong>SSG 08 (Scout):</strong> Lightweight and lethal in skilled hands. If your aim is sharp, the Scout lets you stay mobile while still dealing serious damage.</p>
+                    <p><strong>Glock-18 & USP-S:</strong> Pistol round staples. The Glock’s mobility and burst mode contrast nicely with the USP-S’s precision and accuracy.</p>
+
+                    <h4>B-Tier Weapons (Situational but Useful)</h4>
+                    <p><strong>SG 553 & AUG:</strong> Scoped rifles with strong accuracy, but awkward spray patterns and high prices make them niche picks rather than defaults.</p>
+                    <p><strong>Shotguns (Nova, XM1014, MAG-7):</strong> Devastating at close range and great for tight angles, but useless once distance comes into play. Strong on specific maps and setups only.</p>
+                    <p><strong>Auto-Snipers (SCAR-20 & G3SG1):</strong> Powerful but overpriced. They can lock down angles, yet their cost and mobility issues make them rare sights in serious matches.</p>
+                    <p><strong>P250:</strong> A solid budget pistol that still has one-tap potential against unarmored opponents. Reliable, but rarely game-changing.</p>
+
+                    <h4>C-Tier Weapons (Rarely Worth Buying)</h4>
+                    <p><strong>CZ-75 Auto:</strong> Can surprise someone once — and then you’re empty. Extremely limited, with no room for mistakes.</p>
+                    <p><strong>P90:</strong> High ammo count, low impact. It’s easy to use but struggles badly against rifles, making its high price hard to justify.</p>
+                    <p><strong>MP7, MP5, PP-Bizon, UMP-45:</strong> None of these SMGs truly stand out. They’re usable, but there’s almost always a better choice for the same money.</p>
+                    <p><strong>P2000:</strong> Outperformed by the USP-S in nearly every situation. Picking this feels like settling for less.</p>
+
+                    <h4>D-Tier Weapons (Avoid in Competitive Play)</h4>
+                    <p><strong>R8 Revolver:</strong> High damage ruined by delayed firing. In a game built on instant reactions, this design choice makes it unreliable.</p>
+                    <p><strong>M249:</strong> Extremely expensive, slow, and difficult to control. The downsides far outweigh any benefit.</p>
+                    <p><strong>Negev:</strong> Fun in casual modes, questionable everywhere else. Once you start shooting, you’re basically a stationary target.</p>
+
+                    <h4>Final Verdict</h4>
+                    <p>CS2 is still a game where smart buys win games. Mastering a small pool of reliable weapons will always outperform experimenting with flashy but ineffective options. Stick to S-Tier and A-Tier weapons, manage your economy well, and buy with purpose.</p>
                 `
             },
             'valorant-harbor': {
@@ -388,7 +441,7 @@
                 title: "Tidal Shift: Harbor Redefines Abyss",
                 game: "Valorant",
                 image: "maxresdefault.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2"><span class="text-[10px] uppercase font-black text-white/40">Global Win Rate</span><span class="text-[11px] font-black text-pink-400 italic">54%</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 font-bold text-white"><span class="text-[10px] uppercase font-black opacity-40">Global Win Rate</span><span class="text-[11px] font-black text-pink-400 italic">54%</span></div>`,
                 content: `
                     <p>Harbor is now S-Tier following Patch 11.10. The <strong>25% health increase</strong> to his Cove shield changed the fundamental approach to spike plants on maps like Abyss and Pearl.</p>
                     <h4>Competitive Impact</h4>
@@ -413,7 +466,7 @@
                 <span class="text-indigo-600 font-black uppercase tracking-[0.2em] text-[9px] text-slate-950 font-bold">${art.game} Intelligence</span>
                 <h1 class="text-3xl md:text-7xl font-black mt-2 mb-6 md:mb-10 uppercase leading-[0.95] text-slate-950 italic">${art.title}</h1>
                 <img src="${art.image}" class="w-full h-64 md:h-[500px] rounded-[32px] md:rounded-[48px] shadow-2xl mb-10 md:mb-16 border border-slate-50">
-                <div class="article-body">${art.content}</div>
+                <div class="article-body text-black font-bold">${art.content}</div>
             `;
             
             document.getElementById('meta-pulse-content').innerHTML = art.metaPulse;
@@ -425,10 +478,10 @@
             const related = Object.values(articles).filter(a => a.game === art.game && a.id !== art.id);
             relatedContainer.innerHTML = related.length > 0 ? related.map(rel => `
                 <div class="flex gap-4 group cursor-pointer" onclick="openArticle('${rel.id}')">
-                    <div class="w-16 h-16 rounded-2xl overflow-hidden shrink-0 shadow-lg border border-slate-100"><img src="${rel.image}" class="w-full h-full object-cover"></div>
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden shrink-0 shadow-lg border border-slate-100 font-bold"><img src="${rel.image}" class="w-full h-full object-cover"></div>
                     <div><h5 class="text-[13px] font-black leading-tight uppercase italic text-slate-950 group-hover:text-indigo-600 transition-colors">${rel.title}</h5><span class="text-[9px] text-indigo-500 font-black uppercase tracking-widest">Read Now</span></div>
                 </div>
-            `).join('') : `<p class="text-[10px] text-slate-400 italic">Tracking more ${art.game} intelligence...</p>`;
+            `).join('') : `<p class="text-[10px] text-slate-400 italic">Tracking more ${art.game} updates...</p>`;
 
             showPage('article');
         }
