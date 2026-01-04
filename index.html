@@ -144,7 +144,6 @@
 
     <!-- HOME PAGE -->
     <main id="home-page" class="page-content page-active">
-        <!-- Hero Section: Clean White Background -->
         <section class="hero-bg relative pt-32 pb-24 md:pt-60 md:pb-48 border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <h1 class="text-4xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-4 md:mb-6 text-slate-950 uppercase italic leading-none">
@@ -218,7 +217,6 @@
                     <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tighter italic text-black">Counter-Strike 2</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
-                    <!-- New Image for Weapon Tier List -->
                     <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('cs2-weapon-tier')">
                         <img src="172668491719512305.png" class="h-48 md:h-56 w-full object-cover">
                         <div class="p-6 flex-1 flex flex-col text-black">
@@ -235,30 +233,30 @@
                             <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-4">Read Intel</span>
                         </div>
                     </div>
-                    <!-- HLTV Tracker -->
-                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white border-blue-500/20 border">
-                        <span class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-6 flex justify-between items-center border-b border-white/5 pb-2">HLTV Top 3 <i data-lucide="award" class="w-4 h-4 text-amber-500"></i></span>
-                        <div class="space-y-4 flex-1">
+                    <!-- HLTV Tracker - CONDENSED SMALL BOX -->
+                    <div class="soft-card rounded-3xl p-5 bg-slate-950 text-white border-blue-500/20 border">
+                        <span class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-4 flex justify-between items-center border-b border-white/5 pb-2">Top 3 <i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i></span>
+                        <div class="space-y-3 flex-1">
                             <div class="flex items-center gap-3">
-                                <span class="text-xl font-black text-amber-500 italic">01</span>
-                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
-                                <span class="text-[10px] font-black uppercase italic">Donk</span>
+                                <span class="text-lg font-black text-amber-500 italic">1</span>
+                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10 shadow-lg">
+                                <span class="text-[9px] font-black uppercase italic">Donk</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <span class="text-xl font-black text-slate-400 italic">02</span>
-                                <img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
-                                <span class="text-[10px] font-black uppercase italic">ZywOo</span>
+                                <span class="text-lg font-black text-slate-400 italic">2</span>
+                                <img src="OIP (1).webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10 shadow-lg">
+                                <span class="text-[9px] font-black uppercase italic">ZywOo</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <span class="text-xl font-black text-amber-700 italic">03</span>
-                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover border border-white/10">
-                                <span class="text-[10px] font-black uppercase italic">m0NESY</span>
+                                <span class="text-lg font-black text-amber-700 italic">3</span>
+                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10 shadow-lg">
+                                <span class="text-[9px] font-black uppercase italic">m0NESY</span>
                             </div>
                         </div>
                     </div>
                     <div class="soft-card rounded-3xl p-6 bg-slate-50 border-slate-200 text-center flex flex-col justify-center">
                         <h4 class="text-[10px] font-black uppercase mb-3 text-slate-400 tracking-widest">Market Pulse</h4>
-                        <div class="text-5xl font-black text-blue-600 mb-1 italic text-black">+14.2%</div>
+                        <div class="text-5xl font-black text-blue-600 mb-1 italic">+14.2%</div>
                         <p class="text-[9px] text-slate-500 font-bold uppercase">Glove Case Vol.</p>
                     </div>
                 </div>
@@ -284,7 +282,7 @@
                         <div class="space-y-6 text-slate-950 font-black flex-1 uppercase">
                             <div class="flex justify-between items-center border-b border-slate-50 pb-2"><span class="text-sm italic">Harbor</span><span class="text-xl text-pink-600 italic">64.5%</span></div>
                             <div class="flex justify-between items-center border-b border-slate-50 pb-2"><span class="text-sm italic">Jett</span><span class="text-xl text-slate-400 italic">52.1%</span></div>
-                            <div class="flex justify-between items-center"><span class="text-sm italic">Clove</span><span class="text-xl text-slate-400 italic">48.2%</span></div>
+                            <div class="flex justify-between items-center"><span class="text-sm italic">Clove</span><span class="text-xl text-slate-500 italic">48.2%</span></div>
                         </div>
                     </div>
                     <div class="soft-card rounded-3xl p-8 bg-slate-950 text-white">
@@ -397,18 +395,41 @@
                     </ul>
 
                     <h4>S-Tier Weapons (Meta-Defining Picks)</h4>
-                    <p><strong>AWP:</strong> The AWP remains the most influential gun in CS2. One clean shot is all it takes to shut down a map. Expensive but unmatched in pressure.</p>
-                    <p><strong>AK-47:</strong> Backbone of the T side. One-tap potential, strong spray control, and insane value for price.</p>
-                    <p><strong>M4A1-S:</strong> Low recoil and excellent accuracy. Most reliable CT rifle in the current meta.</p>
-                    <p><strong>Desert Eagle:</strong> High risk, massive reward. Can flip eco rounds in seconds.</p>
+                    <p>These are the weapons that win rounds by themselves. If you can afford them and know how to use them, there’s no reason not to.</p>
+                    <p><strong>AWP:</strong> The AWP remains the most influential gun in CS2. One clean shot is all it takes, and on the right player, it can completely shut down a map. It’s expensive, but the pressure it creates is unmatched.</p>
+                    <p><strong>AK-47:</strong> The backbone of the T side. One-tap potential at any range, strong spray control, and insane value for its price. If you’re buying rifles as a Terrorist, this is always the first choice.</p>
+                    <p><strong>M4A1-S:</strong> Low recoil, excellent accuracy, and a suppressor that keeps you hidden. The M4A1-S rewards disciplined aim and positioning, making it the most reliable CT rifle in the current meta.</p>
+                    <p><strong>Desert Eagle:</strong> High risk, massive reward. The Deagle can flip eco rounds in seconds if your aim is sharp. It’s unforgiving, but no pistol strikes fear quite like this one.</p>
 
                     <h4>A-Tier Weapons (Reliable & Versatile)</h4>
-                    <p><strong>M4A4:</strong> More bullets, faster fire rate. Better for site anchoring and longer sprays.</p>
-                    <p><strong>Galil AR:</strong> Best value rifle. Cheap and surprisingly effective for entry fragging.</p>
-                    <p><strong>MP9 & MAC-10:</strong> Anti-eco kings. High fire rate and huge kill rewards.</p>
+                    <p>A-Tier weapons may not dominate every situation, but they’re strong, consistent, and often cost-effective.</p>
+                    <p><strong>M4A4:</strong> More bullets, faster fire rate, and better for holding tight angles. If you prefer longer sprays and site anchoring, the M4A4 still holds its ground.</p>
+                    <p><strong>FAMAS:</strong> Not flashy, but dependable. When money is tight on CT side, the FAMAS lets you stay competitive without fully committing to a save.</p>
+                    <p><strong>Galil AR:</strong> One of the best value rifles in the game. Cheap, forgiving, and surprisingly effective for entry fragging when an AK isn’t affordable.</p>
+                    <p><strong>Tec-9 & Five-SeveN:</strong> These pistols shine in force-buy rounds. Mobile, aggressive, and deadly up close, they give eco rounds real upset potential.</p>
+                    <p><strong>MP9 & MAC-10:</strong> The kings of anti-eco. High fire rate, huge kill rewards, and deadly against unarmored opponents. Perfect for farming money and momentum.</p>
+                    <p><strong>SSG 08 (Scout):</strong> Lightweight and lethal in skilled hands. If your aim is sharp, the Scout lets you stay mobile while still dealing serious damage.</p>
+                    <p><strong>Glock-18 & USP-S:</strong> Pistol round staples. The Glock’s mobility and burst mode contrast nicely with the USP-S’s precision and accuracy.</p>
+
+                    <h4>B-Tier Weapons (Situational but Useful)</h4>
+                    <p><strong>SG 553 & AUG:</strong> Scoped rifles with strong accuracy, but awkward spray patterns and high prices make them niche picks rather than defaults.</p>
+                    <p><strong>Shotguns (Nova, XM1014, MAG-7):</strong> Devastating at close range and great for tight angles, but useless once distance comes into play. Strong on specific maps and setups only.</p>
+                    <p><strong>Auto-Snipers (SCAR-20 & G3SG1):</strong> Powerful but overpriced. They can lock down angles, yet their cost and mobility issues make them rare sights in serious matches.</p>
+                    <p><strong>P250:</strong> A solid budget pistol that still has one-tap potential against unarmored opponents. Reliable, but rarely game-changing.</p>
+
+                    <h4>C-Tier Weapons (Rarely Worth Buying)</h4>
+                    <p><strong>CZ-75 Auto:</strong> Can surprise someone once — and then you’re empty. Extremely limited, with no room for mistakes.</p>
+                    <p><strong>P90:</strong> High ammo count, low impact. It’s easy to use but struggles badly against rifles, making its high price hard to justify.</p>
+                    <p><strong>MP7, MP5, PP-Bizon, UMP-45:</strong> None of these SMGs truly stand out. They’re usable, but there’s almost always a better choice for the same money.</p>
+                    <p><strong>P2000:</strong> Outperformed by the USP-S in nearly every situation. Picking this feels like settling for less.</p>
+
+                    <h4>D-Tier Weapons (Avoid in Competitive Play)</h4>
+                    <p><strong>R8 Revolver:</strong> High damage ruined by delayed firing. In a game built on instant reactions, this design choice makes it unreliable.</p>
+                    <p><strong>M249:</strong> Extremely expensive, slow, and difficult to control. The downsides far outweigh any benefit.</p>
+                    <p><strong>Negev:</strong> Fun in casual modes, questionable everywhere else. Once you start shooting, you’re basically a stationary target.</p>
 
                     <h4>Final Verdict</h4>
-                    <p>Stick to S-Tier and A-Tier weapons, manage your economy well, and buy with purpose. Mastering a few reliable tools beats experimenting with low-impact options.</p>
+                    <p>CS2 is still a game where smart buys win games. Mastering a small pool of reliable weapons will always outperform experimenting with flashy but ineffective options. Stick to S-Tier and A-Tier weapons, manage your economy well, and buy with purpose.</p>
                 `
             },
             'valorant-harbor': {
@@ -416,7 +437,7 @@
                 title: "Tidal Shift: Harbor Redefines Abyss",
                 game: "Valorant",
                 image: "maxresdefault.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-white font-bold"><span class="text-[10px] uppercase font-black opacity-40">Global Win Rate</span><span class="text-[11px] font-black text-pink-400 italic">54%</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 font-bold text-white"><span class="text-[10px] uppercase font-black opacity-40">Global Win Rate</span><span class="text-[11px] font-black text-pink-400 italic">54%</span></div>`,
                 content: `
                     <p>Harbor is now S-Tier following Patch 11.10. The <strong>25% health increase</strong> to his Cove shield changed the fundamental approach to spike plants on maps like Abyss and Pearl.</p>
                     <h4>Competitive Impact</h4>
