@@ -29,94 +29,74 @@
             text-transform: uppercase;
         }
         
-        /* Premium Card Styling */
-        .soft-card { 
+        /* Forces all cards in a grid row to be equal height */
+        .uniform-card { 
             background: white; 
-            border: 1px solid #f1f5f9; 
-            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.05); 
-            height: fit-content;
+            border: 1px solid #e2e8f0; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+            height: 100%;
             display: flex; 
             flex-direction: column; 
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 24px;
+            transition: all 0.3s ease;
         }
         
-        .soft-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.12);
-            border-color: #e2e8f0;
+        .uniform-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
         }
         
         .glass-nav { 
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid rgba(0, 0, 0, 0.03); 
-        }
-        
-        .accent-gradient { 
-            background: linear-gradient(135deg, #0f172a 0%, #334155 100%); 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
         }
         
         .winds-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
         .cs2-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
         .val-gradient { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
         
+        /* Hero Section Styling */
         .hero-bg { 
             background-color: #ffffff;
             position: relative;
         }
 
-        /* Digital Podium Elements */
-        .podium-slot {
-            position: relative;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+        /* Progress Bars */
+        .progress-bar {
+            height: 6px;
+            background: #f1f5f9;
+            border-radius: 3px;
+            overflow: hidden;
         }
-        .podium-slot:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        .rank-gold { color: #fbbf24; text-shadow: 0 0 10px rgba(251, 191, 36, 0.3); }
-        .rank-silver { color: #94a3b8; text-shadow: 0 0 10px rgba(148, 163, 184, 0.3); }
-        .rank-bronze { color: #d97706; text-shadow: 0 0 10px rgba(217, 119, 6, 0.3); }
-
-        @keyframes marquee { 
-            0% { transform: translateX(100%); } 
-            100% { transform: translateX(-100%); } 
-        }
-        .animate-marquee { animation: marquee 40s linear infinite; }
-        
-        img { background-color: #f8fafc; object-fit: cover; }
+        .progress-fill { height: 100%; transition: width 1s ease-in-out; }
 
         .page-content { display: none; }
         .page-active { display: block; }
 
-        /* Typography */
+        /* Article Styling */
         .article-body p {
-            color: #111827;
+            color: #000000;
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.7;
             font-size: 1.05rem;
-            font-weight: 500;
+            font-weight: 600;
         }
         .article-body h4 {
             color: #000000;
             margin-top: 2.5rem;
-            margin-bottom: 1.25rem;
-            font-weight: 900;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-transform: uppercase;
         }
-        
-        .progress-bar {
-            height: 4px;
-            background: #f1f5f9;
-            border-radius: 2px;
-            overflow: hidden;
+        .article-body li {
+            color: #000000;
+            margin-bottom: 0.5rem;
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            font-weight: 600;
         }
-        .progress-fill { height: 100%; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 <body>
@@ -125,207 +105,192 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 md:h-20 items-center">
-                <div onclick="showPage('home')" class="flex-shrink-0 font-bold text-lg md:text-2xl tracking-tighter logo-font text-slate-950 flex items-center gap-2 cursor-pointer">
-                    <div class="w-8 h-8 md:w-10 md:h-10 bg-black rounded-lg flex items-center justify-center text-white shadow-lg">
-                        <i data-lucide="zap" class="w-5 h-5 md:w-6 md:h-6 fill-current"></i>
+                <div onclick="showPage('home')" class="flex-shrink-0 font-bold text-lg md:text-xl tracking-tighter logo-font text-slate-900 flex items-center gap-2 cursor-pointer">
+                    <div class="w-8 h-8 md:w-10 md:h-10 bg-black rounded-lg flex items-center justify-center text-white">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
                     </div>
                     GAMER<span class="text-indigo-600">INFO</span>
                 </div>
                 
                 <div class="hidden lg:block">
-                    <div class="flex items-center space-x-8 font-black uppercase text-[10px] tracking-[0.2em] text-slate-500">
-                        <a href="#winds-meet" onclick="showPage('home')" class="hover:text-black transition-colors">Winds Meet</a>
-                        <a href="#cs2" onclick="showPage('home')" class="hover:text-black transition-colors">CS2 Intelligence</a>
-                        <a href="#valorant" onclick="showPage('home')" class="hover:text-black transition-colors">Valorant Meta</a>
-                        <a href="javascript:void(0)" onclick="showPage('contact')" class="bg-black text-white px-5 py-2.5 rounded-full hover:bg-indigo-600 transition-all shadow-lg shadow-black/5">Connect</a>
+                    <div class="flex items-center space-x-6 font-bold uppercase text-[10px] tracking-widest text-slate-600">
+                        <a href="#winds-meet" onclick="showPage('home')" class="hover:text-amber-600">Winds Meet</a>
+                        <a href="#cs2" onclick="showPage('home')" class="hover:text-blue-600">CS2</a>
+                        <a href="#valorant" onclick="showPage('home')" class="hover:text-pink-600">Valorant</a>
+                        <a href="javascript:void(0)" onclick="showPage('contact')" class="bg-black text-white px-4 py-2 rounded-full text-[9px]">Contact</a>
                     </div>
                 </div>
 
                 <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-900"><i data-lucide="menu" id="menu-icon"></i></button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-4 py-8 space-y-6 font-black uppercase tracking-widest text-xs text-black">
-            <a href="#winds-meet" onclick="showPage('home'); toggleMobileMenu()" class="block">Winds Meet</a>
-            <a href="#cs2" onclick="showPage('home'); toggleMobileMenu()" class="block">CS2</a>
-            <a href="#valorant" onclick="showPage('home'); toggleMobileMenu()" class="block">Valorant</a>
-            <a href="javascript:void(0)" onclick="showPage('contact'); toggleMobileMenu()" class="block text-indigo-600">Contact</a>
-        </div>
     </nav>
 
     <!-- HOME PAGE -->
     <main id="home-page" class="page-content page-active">
-        <section class="hero-bg relative pt-32 pb-24 md:pt-64 md:pb-52 border-b border-slate-50">
+        <!-- Hero: Pure White -->
+        <section class="hero-bg relative pt-32 pb-24 md:pt-60 md:pb-48 border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <div class="inline-block px-4 py-1.5 bg-slate-50 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-8">Specialized Intelligence Hub</div>
-                <h1 class="text-5xl md:text-8xl lg:text-[10rem] font-black tracking-tighter mb-6 text-slate-950 uppercase italic leading-[0.85]">
-                    Expert <br class="hidden md:block"> <span class="text-indigo-600">Intelligence</span>
+                <h1 class="text-4xl md:text-7xl lg:text-[9rem] font-black tracking-tighter mb-4 text-slate-950 uppercase italic leading-none">
+                    Expert <span class="text-indigo-600">Intelligence</span>
                 </h1>
-                <p class="text-sm md:text-2xl text-slate-400 max-w-2xl mx-auto font-medium tracking-tight uppercase">Tactical data and deep-dives for the games that define the meta.</p>
+                <p class="text-sm md:text-xl lg:text-3xl text-slate-500 max-w-3xl mx-auto font-bold tracking-wide uppercase">Tactical data & meta analysis hub.</p>
             </div>
         </section>
 
-        <section class="py-16 md:py-32 max-w-7xl mx-auto px-4 space-y-32">
+        <section class="py-12 md:py-24 max-w-7xl mx-auto px-4 space-y-24">
             
-            <!-- Where Winds Meet -->
-            <div id="winds-meet" class="space-y-12">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-8">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 winds-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-amber-200"><i data-lucide="mountain"></i></div>
-                        <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">Where Winds Meet</h2>
-                    </div>
+            <!-- WHERE WINDS MEET SECTION -->
+            <div id="winds-meet" class="space-y-8">
+                <div class="flex items-center gap-4 border-b-4 border-amber-500 pb-4 w-fit">
+                    <div class="w-10 h-10 winds-gradient rounded-lg flex items-center justify-center text-white shadow-lg"><i data-lucide="mountain" class="w-6 h-6"></i></div>
+                    <h2 class="text-2xl md:text-4xl font-black uppercase italic text-black">Where Winds Meet</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Performance Blog -->
-                    <div class="soft-card overflow-hidden cursor-pointer group" onclick="openArticle('wwm-performance-fix')">
-                        <div class="relative h-64"><img src="Where-the-Wind-Meets-1-00-22-23.jpg" class="h-full w-full object-cover"></div>
-                        <div class="p-8">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-amber-600 mb-2 block">System Optimization</span>
-                            <h3 class="text-xl font-black uppercase italic leading-tight text-slate-900 group-hover:text-indigo-600 transition-colors">2026 Stutter Fix Guide</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                    <!-- Column 1: Article Left -->
+                    <div class="uniform-card overflow-hidden cursor-pointer group" onclick="openArticle('wwm-performance-fix')">
+                        <img src="Where-the-Wind-Meets-1-00-22-23.jpg" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col">
+                            <span class="text-[9px] text-amber-600 font-black uppercase tracking-widest mb-1">Performance</span>
+                            <h3 class="text-lg font-black uppercase italic leading-tight text-black">2026 Stutter Fix</h3>
+                            <span class="text-indigo-600 font-bold text-[10px] uppercase mt-auto pt-4 inline-flex items-center gap-2">Read Intel <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
                         </div>
                     </div>
-                    <!-- Discovery Widget -->
-                    <div class="soft-card p-8 bg-slate-50 border-none">
-                        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 mb-10 flex justify-between items-center italic">Hub Discovery <i data-lucide="compass" class="w-4 h-4"></i></h4>
-                        <div class="space-y-8 text-slate-950 font-black uppercase">
-                            <div>
-                                <div class="flex justify-between mb-3 text-[10px] tracking-widest"><span>Skill Theft</span><span class="text-amber-600">4/4</span></div>
-                                <div class="progress-bar"><div class="progress-fill bg-amber-500 w-full shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-3 text-[10px] tracking-widest"><span>Mystic Arts</span><span class="text-amber-600">2/8</span></div>
-                                <div class="progress-bar"><div class="progress-fill bg-amber-500 w-[25%] opacity-50"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-3 text-[10px] tracking-widest"><span>Innerways</span><span class="text-slate-400">6/20</span></div>
-                                <div class="progress-bar"><div class="progress-fill bg-black w-[30%]"></div></div>
-                            </div>
+                    <!-- Column 2: Article Left -->
+                    <div class="uniform-card overflow-hidden cursor-pointer group" onclick="openArticle('winds-lion-roar')">
+                        <img src="bell2.jpg" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
+                            <span class="text-[9px] text-amber-600 font-black uppercase tracking-widest mb-1">Mastery Guide</span>
+                            <h3 class="text-lg font-black uppercase italic leading-tight">Lion's Roar Path</h3>
+                            <span class="text-indigo-600 font-bold text-[10px] uppercase mt-auto pt-4">Begin Training</span>
                         </div>
                     </div>
-                    <!-- Combat Widget -->
-                    <div class="soft-card p-8 bg-black text-white border-none relative overflow-hidden">
-                        <div class="absolute -right-10 -bottom-10 opacity-10"><i data-lucide="swords" class="w-40 h-40"></i></div>
-                        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 mb-8 italic">Meta DPS Builds</h4>
-                        <div class="space-y-4 relative z-10">
-                            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between hover:bg-white/10 transition-colors">
-                                <span class="text-xs font-black italic">Strategic Sword</span>
-                                <span class="text-[9px] font-black text-amber-400">S-TIER</span>
+                    <!-- Column 3: Discovery Tracker -->
+                    <div class="uniform-card p-6 bg-slate-50 border-slate-200">
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-amber-600 mb-6 flex justify-between items-center border-b border-amber-100 pb-2 text-black">Discovery <i data-lucide="compass" class="w-4 h-4"></i></h4>
+                        <div class="space-y-6 flex-1 font-black text-slate-950 uppercase text-[9px]">
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Skill Theft</span><span>4/4</span></div>
+                                <div class="progress-bar"><div class="progress-fill bg-amber-500 w-full"></div></div>
                             </div>
-                            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between hover:bg-white/10 transition-colors">
-                                <span class="text-xs font-black italic">Twinblade</span>
-                                <span class="text-[9px] font-black text-slate-400">A-TIER</span>
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Mystic Arts</span><span>2/8</span></div>
+                                <div class="progress-bar"><div class="progress-fill bg-amber-500 w-[25%]"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Innerways</span><span>6/20</span></div>
+                                <div class="progress-bar"><div class="progress-fill bg-slate-900 w-[30%]"></div></div>
                             </div>
                         </div>
                     </div>
-                    <!-- Lion Roar -->
-                    <div class="soft-card overflow-hidden cursor-pointer group" onclick="openArticle('winds-lion-roar')">
-                        <div class="relative h-64"><img src="bell2.jpg" class="h-full w-full object-cover"></div>
-                        <div class="p-8">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-amber-600 mb-2 block">Skill Intelligence</span>
-                            <h3 class="text-xl font-black uppercase italic leading-tight text-slate-900 group-hover:text-indigo-600 transition-colors">Lion's Roar Unlocked</h3>
+                    <!-- Column 4: Meta DPS Build -->
+                    <div class="uniform-card p-6 bg-black text-white">
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-6 block border-b border-white/10 pb-2">Meta Builds</h4>
+                        <div class="space-y-3 flex-1">
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5">
+                                <span class="text-[10px] font-black uppercase italic">Strategic Sword</span>
+                                <span class="text-[8px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded font-black uppercase">S-Tier</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5">
+                                <span class="text-[10px] font-black uppercase italic">Twinblade</span>
+                                <span class="text-[8px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded font-black uppercase">A-Tier</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5">
+                                <span class="text-[10px] font-black uppercase italic">Vernal Umbrella</span>
+                                <span class="text-[8px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded font-black uppercase">B-Tier</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Counter-Strike 2 -->
-            <div id="cs2" class="space-y-12">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-8">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 cs2-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-blue-200"><i data-lucide="crosshair"></i></div>
-                        <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">Counter-Strike 2</h2>
-                    </div>
+            <!-- CS2 SECTION -->
+            <div id="cs2" class="space-y-8">
+                <div class="flex items-center gap-4 border-b-4 border-blue-600 pb-4 w-fit">
+                    <div class="w-10 h-10 cs2-gradient rounded-lg flex items-center justify-center text-white shadow-lg"><i data-lucide="crosshair" class="w-6 h-6"></i></div>
+                    <h2 class="text-2xl md:text-4xl font-black uppercase italic text-black">Counter-Strike 2</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Weapon Tier Blog -->
-                    <div class="soft-card overflow-hidden cursor-pointer group" onclick="openArticle('cs2-weapon-tier')">
-                        <div class="relative h-64"><img src="172668491719512305.png" class="h-full w-full object-cover"></div>
-                        <div class="p-8">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2 block">Armory Analysis</span>
-                            <h3 class="text-xl font-black uppercase italic leading-tight text-slate-900 group-hover:text-indigo-600 transition-colors">2026 Weapon Tiers</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                    <!-- Column 1: Article Left -->
+                    <div class="uniform-card overflow-hidden cursor-pointer group" onclick="openArticle('cs2-weapon-tier')">
+                        <img src="172668491719512305.png" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
+                            <span class="text-[9px] text-blue-600 font-black uppercase tracking-widest mb-1">Armory</span>
+                            <h3 class="text-lg font-black uppercase italic leading-tight">2026 Weapon Tiers</h3>
+                            <span class="text-indigo-600 font-bold text-[10px] uppercase mt-auto pt-4">View Full List</span>
                         </div>
                     </div>
-                    <!-- HLTV DIGITAL PODIUM - UNIQUE LOOK -->
-                    <div class="soft-card bg-slate-950 text-white border-none p-6 shadow-2xl">
-                        <div class="flex justify-between items-center mb-8">
-                            <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 italic">HLTV Top 3</h4>
-                            <div class="px-2 py-0.5 bg-blue-600/20 rounded text-[8px] font-bold text-blue-400">2025 DATA</div>
+                    <!-- Column 2: Article Left -->
+                    <div class="uniform-card overflow-hidden cursor-pointer group" onclick="openArticle('cs2-economy')">
+                        <img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
+                            <span class="text-[9px] text-blue-600 font-black uppercase tracking-widest mb-1">Market</span>
+                            <h3 class="text-lg font-black uppercase italic leading-tight">Sticker Slab Meta</h3>
+                            <span class="text-indigo-600 font-bold text-[10px] uppercase mt-auto pt-4">Read Intel</span>
                         </div>
+                    </div>
+                    <!-- Column 3: HLTV Top 3 Box -->
+                    <div class="uniform-card p-5 bg-slate-950 text-white border-blue-500/20 border">
+                        <h4 class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-6 flex justify-between items-center border-b border-white/5 pb-2">Top 3 <i data-lucide="award" class="w-4 h-4 text-amber-500"></i></h4>
                         <div class="space-y-4">
-                            <div class="podium-slot flex items-center gap-4 border-l-4 border-amber-500 bg-amber-500/5">
-                                <span class="text-2xl font-black italic rank-gold">1</span>
-                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-12 h-12 rounded-xl border border-white/10 shadow-inner">
-                                <div class="flex flex-col"><span class="text-[10px] font-black uppercase text-amber-500">MVP / 1.45 RT</span><span class="text-xs font-bold uppercase italic tracking-tight">Donk</span></div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-black text-amber-500 italic">1</span>
+                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover">
+                                <span class="text-[10px] font-black uppercase italic">Donk</span>
                             </div>
-                            <div class="podium-slot flex items-center gap-4 border-l-4 border-slate-400 bg-slate-400/5">
-                                <span class="text-2xl font-black italic rank-silver">2</span>
-                                <img src="OIP (1).webp.png" class="w-12 h-12 rounded-xl border border-white/10">
-                                <div class="flex flex-col"><span class="text-[10px] font-black uppercase text-slate-400">Elite / 1.32 RT</span><span class="text-xs font-bold uppercase italic tracking-tight">ZywOo</span></div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl font-black text-slate-400 italic">2</span>
+                                <img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover">
+                                <span class="text-[10px] font-black uppercase italic">ZywOo</span>
                             </div>
-                            <div class="podium-slot flex items-center gap-4 border-l-4 border-amber-800 bg-amber-800/5">
-                                <span class="text-2xl font-black italic rank-bronze">3</span>
-                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-12 h-12 rounded-xl border border-white/10">
-                                <div class="flex flex-col"><span class="text-[10px] font-black uppercase text-amber-800">Awp / 1.28 RT</span><span class="text-xs font-bold uppercase italic tracking-tight">m0NESY</span></div>
+                            <div class="flex items-center gap-3 border-b border-white/5 pb-4">
+                                <span class="text-xl font-black text-amber-700 italic">3</span>
+                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover">
+                                <span class="text-[10px] font-black uppercase italic">m0NESY</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Market Tracker -->
-                    <div class="soft-card p-8 bg-slate-50 border-none flex items-center justify-center text-center">
-                        <div class="space-y-2">
-                            <div class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">Market Index</div>
-                            <div class="text-7xl font-black text-blue-600 italic">+14.2%</div>
-                            <div class="text-[9px] font-black uppercase text-slate-500">24H Trading Intensity</div>
-                        </div>
-                    </div>
-                    <!-- Economy Blog -->
-                    <div class="soft-card overflow-hidden cursor-pointer group" onclick="openArticle('cs2-economy')">
-                        <div class="relative h-64"><img src="a139a4fc8994a34275c17aeea9e50fe7.jpg" class="h-full w-full object-cover"></div>
-                        <div class="p-8">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2 block">Economy Intel</span>
-                            <h3 class="text-xl font-black uppercase italic leading-tight text-slate-900 group-hover:text-indigo-600 transition-colors">Sticker Slab Meta</h3>
-                        </div>
+                    <!-- Column 4: Market Pulse -->
+                    <div class="uniform-card p-6 bg-slate-50 border-slate-200 text-center flex flex-col justify-center">
+                        <h4 class="text-[10px] font-black uppercase mb-3 text-slate-400">Market Pulse</h4>
+                        <div class="text-5xl font-black text-blue-600 mb-1 italic">+14.2%</div>
+                        <p class="text-[9px] text-slate-500 font-bold uppercase">Glove Case Vol.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Valorant -->
-            <div id="valorant" class="space-y-12">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-8">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 val-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-pink-200"><i data-lucide="shield"></i></div>
-                        <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">Valorant Meta</h2>
-                    </div>
+            <!-- VALORANT SECTION -->
+            <div id="valorant" class="space-y-8">
+                <div class="flex items-center gap-4 border-b-4 border-pink-600 pb-4 w-fit">
+                    <div class="w-10 h-10 val-gradient rounded-lg flex items-center justify-center text-white shadow-lg"><i data-lucide="shield" class="w-6 h-6"></i></div>
+                    <h2 class="text-2xl md:text-4xl font-black uppercase italic text-black">Valorant Meta</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Harbor Article -->
-                    <div class="soft-card overflow-hidden cursor-pointer group" onclick="openArticle('valorant-harbor')">
-                        <div class="relative h-64"><img src="maxresdefault.jpg" class="h-full w-full object-cover"></div>
-                        <div class="p-8">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-pink-600 mb-2 block">Tactical Report</span>
-                            <h3 class="text-xl font-black uppercase italic leading-tight text-slate-900 group-hover:text-indigo-600 transition-colors">Harbor Abyss Meta</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                    <!-- Column 1: Article Left -->
+                    <div class="uniform-card overflow-hidden cursor-pointer group lg:col-span-2" onclick="openArticle('valorant-harbor')">
+                        <img src="maxresdefault.jpg" class="h-48 md:h-64 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-slate-950">
+                            <span class="text-[9px] text-pink-600 font-black uppercase tracking-widest mb-1">Strategy</span>
+                            <h3 class="text-xl font-black mt-2 uppercase italic leading-tight">Harbor Abyss Meta</h3>
+                            <span class="text-indigo-600 font-bold text-[10px] uppercase mt-auto pt-4">View Tactics</span>
                         </div>
                     </div>
-                    <!-- Pick Rates -->
-                    <div class="soft-card p-8 bg-white">
-                        <h4 class="text-[11px] font-black uppercase tracking-widest text-pink-600 mb-10 italic">Global Pick Rates</h4>
-                        <div class="space-y-8 font-black uppercase">
-                            <div class="flex justify-between items-end border-b border-slate-50 pb-2">
-                                <span class="text-xs italic text-slate-400 tracking-widest">Harbor</span>
-                                <span class="text-3xl text-pink-600 italic leading-none">64.5%</span>
-                            </div>
-                            <div class="flex justify-between items-end border-b border-slate-50 pb-2">
-                                <span class="text-xs italic text-slate-400 tracking-widest">Jett</span>
-                                <span class="text-2xl text-slate-800 italic leading-none">52.1%</span>
-                            </div>
+                    <!-- Column 3: Pick Rates -->
+                    <div class="uniform-card p-6 bg-white border-pink-50">
+                        <h4 class="text-[10px] font-black uppercase text-pink-600 mb-8 border-b border-pink-50 pb-2 italic">Pick Rates</h4>
+                        <div class="space-y-6 text-slate-950 font-black flex-1 uppercase text-[9px]">
+                            <div class="flex justify-between items-center"><span class="italic">Harbor</span><span class="text-xl text-pink-600 italic">64.5%</span></div>
+                            <div class="flex justify-between items-center"><span class="italic">Jett</span><span class="text-xl text-slate-400 italic">52.1%</span></div>
                         </div>
                     </div>
-                    <!-- Map Pool -->
-                    <div class="soft-card p-8 bg-black text-white">
-                        <h4 class="text-[11px] font-black uppercase text-slate-500 mb-8 italic text-center tracking-[0.3em]">Active Map Pool</h4>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="p-3 bg-white/5 rounded-xl border border-pink-500/20 text-[10px] font-black text-center uppercase italic text-pink-400">Abyss</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-[10px] font-black text-center uppercase italic opacity-60">Pearl</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-[10px] font-black text-center uppercase italic opacity-60">Bind</div>
-                            <div class="p-3 bg-white/5 rounded-xl text-[10px] font-black text-center uppercase italic opacity-60">Haven</div>
+                    <!-- Column 4: Map Pool -->
+                    <div class="uniform-card p-6 bg-slate-950 text-white">
+                        <h4 class="text-[10px] font-black uppercase text-slate-400 mb-6 italic border-b border-white/5 pb-2">Map Pool</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase italic text-pink-400">Abyss</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase italic opacity-60">Pearl</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase italic opacity-60">Bind</div>
+                            <div class="p-2 bg-white/5 rounded text-[8px] font-black text-center uppercase italic opacity-60">Haven</div>
                         </div>
                     </div>
                 </div>
@@ -336,32 +301,30 @@
     <!-- ARTICLE PAGE -->
     <main id="article-page" class="page-content pt-20 md:pt-32 pb-24">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
                 <div class="lg:col-span-8">
-                    <button onclick="showPage('home')" class="flex items-center gap-3 text-black font-black mb-10 uppercase text-[10px] tracking-widest hover:translate-x-[-4px] transition-transform">
-                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Return to Network
+                    <button onclick="showPage('home')" class="flex items-center gap-2 text-indigo-600 font-black mb-8 uppercase text-[10px] tracking-widest hover:gap-4 transition-all">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Hub
                     </button>
                     <div id="article-content" class="article-body"></div>
                 </div>
-                <aside class="lg:col-span-4 space-y-10">
+                <aside class="lg:col-span-4 space-y-8">
                     <!-- Sidebar Top 3 Mini -->
-                    <div id="hltv-sidebar-widget" class="hidden soft-card bg-slate-950 text-white border-none p-6">
-                        <h4 class="text-[11px] font-black uppercase text-blue-400 mb-8 border-b border-white/5 pb-4 italic tracking-widest">Podium Status</h4>
+                    <div id="hltv-sidebar-widget" class="hidden uniform-card bg-slate-950 text-white border-none p-6">
+                        <h4 class="text-[10px] font-black uppercase text-blue-400 mb-6 border-b border-white/5 pb-2 italic">HLTV Podium</h4>
                         <div class="space-y-4">
-                            <div class="podium-slot flex items-center gap-4"><span class="text-2xl font-black italic rank-gold">1</span><img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[10px] font-black uppercase italic">Donk</span></div>
-                            <div class="podium-slot flex items-center gap-4"><span class="text-2xl font-black italic rank-silver">2</span><img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[10px] font-black uppercase italic">ZywOo</span></div>
-                            <div class="podium-slot flex items-center gap-4"><span class="text-2xl font-black italic rank-bronze">3</span><img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[10px] font-black uppercase italic">m0NESY</span></div>
+                            <div class="flex items-center gap-4"><span class="text-2xl font-black text-amber-500 italic">1</span><img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[10px] font-black uppercase italic">Donk</span></div>
+                            <div class="flex items-center gap-4"><span class="text-2xl font-black text-slate-400 italic">2</span><img src="OIP (1).webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[10px] font-black uppercase italic">ZywOo</span></div>
+                            <div class="flex items-center gap-4 border-b border-white/5 pb-4"><span class="text-2xl font-black text-amber-700 italic text-white">3</span><img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-10 h-10 rounded-lg object-cover"><span class="text-[10px] font-black uppercase italic">m0NESY</span></div>
                         </div>
                     </div>
-                    <!-- Related Intel -->
-                    <div class="soft-card p-8 bg-slate-50 border-none">
-                        <h4 class="text-[11px] font-black uppercase text-slate-400 mb-8 border-b border-slate-200 pb-4 italic tracking-widest">Related Intel</h4>
-                        <div id="related-articles-container" class="space-y-8"></div>
+                    <div class="uniform-card p-6 bg-slate-50 border-none">
+                        <h4 class="text-[10px] font-black uppercase text-slate-400 mb-6 border-b border-slate-200 pb-2 italic">Related Intel</h4>
+                        <div id="related-articles-container" class="space-y-6"></div>
                     </div>
-                    <!-- Meta Pulse -->
-                    <div class="soft-card p-8 bg-black text-white border-none">
-                        <h4 class="text-[11px] font-black uppercase text-indigo-400 mb-6 italic tracking-[0.2em]">Meta Pulse</h4>
-                        <div id="meta-pulse-content" class="space-y-4"></div>
+                    <div class="uniform-card p-6 bg-black text-white border-none">
+                        <h4 class="text-[10px] font-black uppercase text-indigo-400 mb-4 italic tracking-widest">Meta Pulse</h4>
+                        <div id="meta-pulse-content" class="space-y-3"></div>
                     </div>
                 </aside>
             </div>
@@ -370,7 +333,7 @@
 
     <footer class="py-24 bg-white border-t border-slate-100 text-center">
         <div class="font-black text-2xl logo-font text-slate-900 mb-4 uppercase italic">GAMER<span class="text-indigo-600">INFO</span></div>
-        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.5em]">© 2025 Gamer Info GG | Zero Latency</p>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">© 2025 Gamer Info GG | Zero Latency</p>
     </footer>
 
     <script>
@@ -382,18 +345,18 @@
                 title: "Echoes of Enlightenment: Unlocking Lion's Roar",
                 game: "Winds Meet",
                 image: "bell2.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/10 pb-2"><span class="text-[10px] uppercase font-black text-slate-500">Vitality Cost</span><span class="text-[11px] font-black text-amber-400 italic">30 PT</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-white font-bold"><span class="text-[10px] uppercase font-black opacity-40">Vitality Cost</span><span class="text-[11px] font-black text-amber-400 italic">30 PT</span></div>`,
                 content: `
                     <p>To obtain the legendary <strong>Lion's Roar</strong>, you must locate and interact with <strong>four giant copper bells</strong> scattered across the Qinghe region.</p>
-                    <h4>Locations</h4>
+                    <h4>Locations in Qinghe</h4>
                     <ul>
-                        <li><strong>Copper Bell 1:</strong> General's Shrine West Wall.</li>
-                        <li><strong>Copper Bell 2:</strong> General's Shrine Southern Hill.</li>
-                        <li><strong>Copper Bell 3:</strong> Buddha Fort Landmark.</li>
-                        <li><strong>Copper Bell 4:</strong> Witherwilds Residence.</li>
+                        <li><strong>Copper Bell 1:</strong> Mounted on the west wall of General's Shrine (Central Town).</li>
+                        <li><strong>Copper Bell 2:</strong> On the hill south of General's Shrine.</li>
+                        <li><strong>Copper Bell 3:</strong> South of Buddha Fort Landmark.</li>
+                        <li><strong>Copper Bell 4:</strong> Inside an abandoned residence in Witherwilds.</li>
                     </ul>
                     <h4>Combat Statistics</h4>
-                    <p>Functions as a massive AoE crowd control ability hitting <strong>14 times</strong>. Master players use this to detonate <strong>Toad Venom</strong> for massive multiplier damage.</p>
+                    <p>The Lion's Roar functions as a massive AoE crowd control ability hitting <strong>14 times</strong>. Master players use this to detonate <strong>Toad Venom</strong> for massive multiplier damage.</p>
                 `
             },
             'wwm-performance-fix': {
@@ -401,16 +364,15 @@
                 title: "Where Winds Meet: 2026 Ultimate Performance Fix Guide",
                 game: "Winds Meet",
                 image: "Where-the-Wind-Meets-1-00-22-23.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/10 pb-2"><span class="text-[10px] uppercase font-black text-slate-500">Shader Size</span><span class="text-[11px] font-black text-amber-400 italic">10GB REQ</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-white font-bold"><span class="text-[10px] uppercase font-black opacity-40">Shader Cache</span><span class="text-[11px] font-black text-amber-400 italic">10GB REQ</span></div>`,
                 content: `
-                    <p>Inside the Messiah Engine, shader compilation and always-online systems create micro-stutters. This guide fixes the issues most sites skip.</p>
+                    <p>If Where Winds Meet feels smooth for ten minutes and then suddenly starts stuttering, you’re not doing anything wrong. The problem is that most guides only talk about graphics presets, while the real issues live deeper—inside the Messiah Engine, shader compilation, and even the game’s always-online systems.</p>
                     <h4>NVIDIA Shader Cache Fix</h4>
-                    <p>Open NVIDIA Control Panel, go to Manage 3D Settings, and set <strong>Shader Cache Size to 10GB</strong>. This prevents constant recompilation and Micro-freezes.</p>
-                    <h4>DirectX 12 vs 11</h4>
-                    <ul>
-                        <li>RTX cards: DX12 (REQUIRED for DLSS 4)</li>
-                        <li>GTX 10-series: DX11 (Stability)</li>
-                    </ul>
+                    <p>Open NVIDIA Control Panel, go to Manage 3D Settings, and set Shader Cache Size to 10GB. This prevents constant recompilation and Micro-freezes.</p>
+                    <h4>The Solar Valley CPU Bottleneck Fix</h4>
+                    <p>Instead of lowering everything, set Textures to High and Vegetation Quality to Medium. This removes CPU choke caused by dense foliage without turning the world blurry.</p>
+                    <h4>Network Stutter Fix</h4>
+                    <p>Single-player lag is often network-related. Ensure a wired Ethernet connection to prevent server checks from dropping your frame timing.</p>
                 `
             },
             'cs2-economy': {
@@ -419,34 +381,37 @@
                 game: "CS2",
                 image: "a139a4fc8994a34275c17aeea9e50fe7.jpg",
                 showHltv: true,
-                metaPulse: `<div class="flex justify-between border-b border-white/10 pb-2"><span class="text-[10px] uppercase font-black text-slate-500">Charm Floor</span><span class="text-[11px] font-black text-blue-400 italic">$4.20</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-white font-bold"><span class="text-[10px] uppercase font-black opacity-40">Charm Floor</span><span class="text-[11px] font-black text-blue-400 italic">$4.20</span></div>`,
                 content: `
-                    <p>Sticker Slabs have shifted the CS2 economy. Charms react to Source 2 physics, inspection, and weapon sway.</p>
+                    <p>The introduction of <strong>Sticker Slabs</strong> has shifted the CS2 economy. Charms are physical items that react to Source 2 physics, inspection animations, and weapon physics.</p>
                     <h4>Technical Intel</h4>
-                    <p>High-tier static stickers are seeing a liquidity dip as investors pivot toward 'Small Seed' charms which offer unique metallic finishes and wear levels.</p>
+                    <p>Unlike static stickers, charms are being used as "visual anchors" by pro players. High-tier static stickers are seeing a liquidity dip as investors pivot toward 'Small Seed' charms which offer unique metallic finishes.</p>
                 `
             },
             'cs2-weapon-tier': {
                 id: 'cs2-weapon-tier',
-                title: "CS2 Weapon Tier List (2026): The Best Guns",
+                title: "CS2 Weapon Tier List (2026): The Best Guns to Win More Rounds",
                 game: "CS2",
                 image: "172668491719512305.png",
                 showHltv: true,
-                metaPulse: `<div class="flex justify-between border-b border-white/10 pb-2"><span class="text-[10px] uppercase font-black text-slate-500">Meta Rifle</span><span class="text-[11px] font-black text-blue-400 italic">AK-47</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-white font-bold"><span class="text-[10px] uppercase font-black opacity-40">T-Side Meta</span><span class="text-[11px] font-black text-red-400 italic">AK-47</span></div>`,
                 content: `
-                    <p>Counter-Strike 2 meta comes down to your weapon choice. This list breaks down impact, consistency, and competitive frequency.</p>
-                    <h4>Tier Overview</h4>
+                    <p>Every Counter-Strike meta eventually comes down to one thing: your weapon choice. This CS2 weapon tier list breaks down which guns are actually worth your money.</p>
+                    <h4>CS2 Weapon Tier Overview</h4>
                     <ul>
                         <li><strong>S-Tier:</strong> AWP, AK-47, M4A1-S, Desert Eagle</li>
-                        <li><strong>A-Tier:</strong> M4A4, FAMAS, Galil AR, MP9, MAC-10</li>
-                        <li><strong>B-Tier:</strong> SG 553, AUG, Shotguns, Auto-Snipers</li>
-                        <li><strong>C-Tier:</strong> CZ-75, P90, SMGs</li>
+                        <li><strong>A-Tier:</strong> M4A4, FAMAS, Galil AR, MP9, MAC-10, Scout, Glock, USP-S</li>
+                        <li><strong>B-Tier:</strong> SG 553, AUG, Nova, Dualies, Auto-Snipers, XM1014, P250</li>
+                        <li><strong>C-Tier:</strong> CZ-75, P90, MP7, MP5, Bizon, UMP, P2000</li>
                         <li><strong>D-Tier:</strong> R8 Revolver, M249, Negev</li>
                     </ul>
-                    <h4>S-Tier Analysis</h4>
-                    <p><strong>AWP:</strong> Most influential gun. One clean shot shuts down a map. Expensive but unmatched.</p>
-                    <p><strong>AK-47:</strong> T backbone. One-tap potential, spray control, insane value.</p>
+                    <h4>S-Tier Weapons</h4>
+                    <p><strong>AWP:</strong> Most influential gun.Shut down a map with one shot. Unmatched pressure.</p>
+                    <p><strong>AK-47:</strong> T side backbone. One-tap potential and spray control.</p>
                     <p><strong>M4A1-S:</strong> Low recoil, suppressor. CT reliability staple.</p>
+                    <p><strong>Desert Eagle:</strong> High risk, massive reward. Flip eco rounds with sharp aim.</p>
+                    <h4>Final Verdict</h4>
+                    <p>Smart buys win games. Mastering a small pool of reliable weapons outperforms flashy but ineffective options.</p>
                 `
             },
             'valorant-harbor': {
@@ -454,11 +419,11 @@
                 title: "Tidal Shift: Harbor Redefines Abyss",
                 game: "Valorant",
                 image: "maxresdefault.jpg",
-                metaPulse: `<div class="flex justify-between border-b border-white/10 pb-2"><span class="text-[10px] uppercase font-black text-slate-500">Abyss Win %</span><span class="text-[11px] font-black text-pink-400 italic">54.2%</span></div>`,
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 font-bold text-white"><span class="text-[10px] uppercase font-black opacity-40">Global Win Rate</span><span class="text-[11px] font-black text-pink-400 italic">54%</span></div>`,
                 content: `
-                    <p>Harbor is now S-Tier. The 25% health increase to Cove changed team approach to plants on maps like Abyss.</p>
-                    <h4>Abyss Strategy</h4>
-                    <p>Curving walls creates tunnels of safety across bridges. Pro teams run Harbor/Viper for information denial.</p>
+                    <p>Harbor is now S-Tier following Patch 11.10. The <strong>25% health increase</strong> to his Cove shield changed the fundamental approach to spike plants on maps like Abyss and Pearl.</p>
+                    <h4>Competitive Impact</h4>
+                    <p>His ability to curve walls around vertical terrain create 'tunnels of safety' across bridges. Pro teams are running Harbor/Viper comps to create visual cages that are impossible for defenders to hold.</p>
                 `
             }
         };
@@ -476,10 +441,10 @@
             if (!art) return;
             
             document.getElementById('article-content').innerHTML = `
-                <span class="text-indigo-600 font-black uppercase tracking-[0.3em] text-[9px] font-bold">${art.game} Intelligence</span>
-                <h1 class="text-4xl md:text-7xl font-black mt-4 mb-10 uppercase leading-[0.9] text-slate-950 italic">${art.title}</h1>
-                <img src="${art.image}" class="w-full h-72 md:h-[600px] rounded-[32px] shadow-2xl mb-16">
-                <div class="article-body">${art.content}</div>
+                <span class="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] text-black font-bold">${art.game} Intelligence</span>
+                <h1 class="text-3xl md:text-6xl font-black mt-2 mb-8 uppercase leading-[0.95] text-slate-950 italic text-black font-bold">${art.title}</h1>
+                <img src="${art.image}" class="w-full h-64 md:h-[500px] rounded-[32px] md:rounded-[48px] shadow-2xl mb-12 border border-slate-50">
+                <div class="article-body text-black font-bold text-black">${art.content}</div>
             `;
             
             document.getElementById('meta-pulse-content').innerHTML = art.metaPulse;
@@ -492,7 +457,7 @@
             relatedContainer.innerHTML = related.length > 0 ? related.map(rel => `
                 <div class="flex gap-4 group cursor-pointer" onclick="openArticle('${rel.id}')">
                     <div class="w-16 h-16 rounded-2xl overflow-hidden shrink-0 border border-slate-200"><img src="${rel.image}" class="w-full h-full object-cover"></div>
-                    <div><h5 class="text-[13px] font-black leading-tight uppercase italic text-slate-950 group-hover:text-indigo-600 transition-colors">${rel.title}</h5><span class="text-[9px] text-slate-400 font-black uppercase tracking-widest">ACCESS DATA</span></div>
+                    <div><h5 class="text-[13px] font-black leading-tight uppercase italic text-slate-950 group-hover:text-indigo-600 transition-colors">${rel.title}</h5><span class="text-[9px] text-indigo-500 font-black uppercase tracking-widest">ACCESS DATA</span></div>
                 </div>
             `).join('') : `<p class="text-[10px] text-slate-400 italic">Syncing more intelligence...</p>`;
 
