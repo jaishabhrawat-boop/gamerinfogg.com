@@ -57,7 +57,6 @@
         .cs2-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
         .val-gradient { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); }
         
-        /* Clean White Hero Background */
         .hero-bg { 
             background-color: #ffffff;
             position: relative;
@@ -161,49 +160,59 @@
                     <div class="w-10 h-10 winds-gradient rounded-lg flex items-center justify-center text-white"><i data-lucide="mountain"></i></div>
                     <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tighter italic text-black">Where Winds Meet</h2>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('winds-lion-roar')">
-                        <div class="relative h-56 md:h-64">
-                            <img src="bell2.jpg" class="h-full w-full object-cover">
-                            <div class="absolute top-4 left-4 bg-amber-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Top Choice</div>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col">
-                            <span class="text-[10px] text-amber-600 font-black uppercase tracking-widest">Mastery Guide</span>
-                            <h3 class="text-2xl font-black mt-2 uppercase italic leading-tight text-slate-900">Lion's Roar Path</h3>
-                            <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-6 inline-flex items-center gap-2">Begin Training <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                <!-- Updated to 4 cols for consistency -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+                    <!-- NEW PERFORMANCE BLOG -->
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('wwm-performance-fix')">
+                        <img src="Where-the-Wind-Meets-1-00-22-23.jpg" class="h-48 md:h-56 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
+                            <span class="text-[10px] text-amber-600 font-black uppercase tracking-widest">Performance Meta</span>
+                            <h3 class="text-xl font-black mt-2 uppercase italic leading-tight">2026 Stutter Fix Guide</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-4">Optimize Now</span>
                         </div>
                     </div>
-                    <div class="soft-card rounded-3xl p-8 bg-slate-50 border-slate-200">
-                        <h4 class="text-[11px] font-black uppercase tracking-widest text-amber-600 mb-8 flex justify-between items-center border-b border-amber-100 pb-4 text-black">Discovery Tracker <i data-lucide="compass" class="w-5 h-5"></i></h4>
-                        <div class="space-y-8 flex-1 font-black text-slate-950 uppercase">
+                    <!-- Existing Lion's Roar Card -->
+                    <div class="soft-card rounded-3xl overflow-hidden cursor-pointer group" onclick="openArticle('winds-lion-roar')">
+                        <img src="bell2.jpg" class="h-48 md:h-56 w-full object-cover">
+                        <div class="p-6 flex-1 flex flex-col text-black">
+                            <span class="text-[10px] text-amber-600 font-black uppercase tracking-widest">Mastery Guide</span>
+                            <h3 class="text-xl font-black mt-2 uppercase italic leading-tight">Lion's Roar Path</h3>
+                            <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-4">Begin Training</span>
+                        </div>
+                    </div>
+                    <!-- Discovery Widget -->
+                    <div class="soft-card rounded-3xl p-6 bg-slate-50 border-slate-200">
+                        <h4 class="text-[11px] font-black uppercase tracking-widest text-amber-600 mb-6 flex justify-between items-center border-b border-amber-100 pb-2 text-black">Discovery Tracker <i data-lucide="compass" class="w-4 h-4"></i></h4>
+                        <div class="space-y-6 flex-1 font-black text-slate-950 uppercase">
                             <div>
-                                <div class="flex justify-between mb-2"><span class="text-[10px]">Skill Theft</span><span class="text-[10px]">4/4</span></div>
+                                <div class="flex justify-between mb-1.5"><span class="text-[10px]">Skill Theft</span><span class="text-[10px]">4/4</span></div>
                                 <div class="progress-bar"><div class="progress-fill bg-amber-500 w-full"></div></div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2"><span class="text-[10px]">Mystic Arts</span><span class="text-[10px]">2/8</span></div>
+                                <div class="flex justify-between mb-1.5"><span class="text-[10px]">Mystic Arts</span><span class="text-[10px]">2/8</span></div>
                                 <div class="progress-bar"><div class="progress-fill bg-amber-500 w-[25%]"></div></div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2"><span class="text-[10px]">Innerways</span><span class="text-[10px]">6/20</span></div>
+                                <div class="flex justify-between mb-1.5"><span class="text-[10px]">Innerways</span><span class="text-[10px]">6/20</span></div>
                                 <div class="progress-bar"><div class="progress-fill bg-slate-900 w-[30%]"></div></div>
                             </div>
                         </div>
                     </div>
-                    <div class="soft-card rounded-3xl p-8 bg-slate-950 text-white">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-6 block border-b border-white/10 pb-4">Top DPS Builds</span>
-                        <div class="space-y-4 flex-1">
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                                <span class="text-xs font-black uppercase italic">Strategic Sword</span>
-                                <span class="text-[10px] bg-green-500/20 text-green-400 px-2 py-1 rounded font-black uppercase">S-Tier</span>
+                    <!-- Combat Widget -->
+                    <div class="soft-card rounded-3xl p-6 bg-slate-950 text-white">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-4 block border-b border-white/10 pb-2 text-center">Top DPS Builds</span>
+                        <div class="space-y-3 flex-1">
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                                <span class="text-[10px] font-black uppercase italic">Strategic Sword</span>
+                                <span class="text-[8px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded font-black uppercase">S-Tier</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                                <span class="text-xs font-black uppercase italic">Twinblade</span>
-                                <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-1 rounded font-black uppercase">A-Tier</span>
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                                <span class="text-[10px] font-black uppercase italic">Twinblade</span>
+                                <span class="text-[8px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded font-black uppercase">A-Tier</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
-                                <span class="text-xs font-black uppercase italic">Vernal Umbrella</span>
-                                <span class="text-[10px] bg-amber-500/20 text-amber-400 px-2 py-1 rounded font-black uppercase">B-Tier</span>
+                            <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                                <span class="text-[10px] font-black uppercase italic">Vernal Umbrella</span>
+                                <span class="text-[8px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded font-black uppercase">B-Tier</span>
                             </div>
                         </div>
                     </div>
@@ -233,23 +242,23 @@
                             <span class="text-indigo-600 font-bold text-xs uppercase mt-auto pt-4">Read Intel</span>
                         </div>
                     </div>
-                    <!-- HLTV Tracker - CONDENSED SMALL BOX -->
+                    <!-- HLTV Mini Podium -->
                     <div class="soft-card rounded-3xl p-5 bg-slate-950 text-white border-blue-500/20 border">
-                        <span class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-4 flex justify-between items-center border-b border-white/5 pb-2">Top 3 <i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i></span>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-4 flex justify-between items-center border-b border-white/5 pb-2 text-center">Top 3 <i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i></span>
                         <div class="space-y-3 flex-1">
                             <div class="flex items-center gap-3">
                                 <span class="text-lg font-black text-amber-500 italic">1</span>
-                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10 shadow-lg">
+                                <img src="Donk-Featured-Player-Image-e1724354532883.webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10">
                                 <span class="text-[9px] font-black uppercase italic">Donk</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="text-lg font-black text-slate-400 italic">2</span>
-                                <img src="OIP (1).webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10 shadow-lg">
+                                <img src="OIP (1).webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10">
                                 <span class="text-[9px] font-black uppercase italic">ZywOo</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="text-lg font-black text-amber-700 italic">3</span>
-                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10 shadow-lg">
+                                <img src="e20I1I0Ld0bWn_VI31pf08.webp.png" class="w-9 h-9 rounded-lg object-cover border border-white/10">
                                 <span class="text-[9px] font-black uppercase italic">m0NESY</span>
                             </div>
                         </div>
@@ -312,6 +321,7 @@
                     <div id="article-content" class="article-body"></div>
                 </div>
                 <aside class="lg:col-span-4 space-y-10 order-2">
+                    <!-- Sidebar Widget CS2 podium restoration if needed -->
                     <div id="hltv-sidebar-widget" class="hidden soft-card rounded-[32px] p-8 bg-slate-950 text-white border-blue-500/20 border shadow-2xl">
                         <h4 class="text-[11px] font-black uppercase text-blue-400 mb-8 border-b border-white/5 pb-4 italic">Podium Status</h4>
                         <div class="space-y-6">
@@ -361,6 +371,54 @@
                     <p>The Lion's Roar functions as a massive AoE crowd control ability. It deals immediate damage and knockback upon impact, followed by a sonic wave that hits <strong>14 times</strong> over its duration. Master players use this to detonate <strong>Toad Venom</strong> for massive multiplier damage.</p>
                 `
             },
+            'wwm-performance-fix': {
+                id: 'wwm-performance-fix',
+                title: "Where Winds Meet: 2026 Ultimate Performance Fix Guide",
+                game: "Winds Meet",
+                image: "Where-the-Wind-Meets-1-00-22-23.jpg",
+                metaPulse: `<div class="flex justify-between border-b border-white/5 pb-2 text-white font-bold"><span class="text-[10px] uppercase font-black opacity-40">Shader Cache</span><span class="text-[11px] font-black text-amber-400 italic">10GB REQ</span></div>`,
+                content: `
+                    <p>If Where Winds Meet feels smooth for ten minutes and then suddenly starts stuttering, you’re not doing anything wrong. The problem is that most guides only talk about graphics presets, while the real issues live deeper—inside the Messiah Engine, shader compilation, and even the game’s always-online systems.</p>
+                    <p>This guide focuses on the fixes that actually matter in 2026, especially the ones most big sites skip.</p>
+                    
+                    <h4>Why does Where Winds Meet stutter when turning the camera?</h4>
+                    <p>This is one of the most common complaints, and it’s almost always shader-related. When you rotate the camera or enter a new city, the game often recompiles shaders on the fly. That causes micro-freezes that feel like FPS drops but aren’t.</p>
+                    
+                    <p><strong>WWM Messiah Engine Shader Cache Fix (NVIDIA):</strong></p>
+                    <ul>
+                        <li>Open NVIDIA Control Panel</li>
+                        <li>Go to Manage 3D Settings</li>
+                        <li>Set Shader Cache Size to 10GB</li>
+                    </ul>
+                    <p>This prevents constant recompilation and makes movement feel noticeably smoother after the first few minutes of play.</p>
+
+                    <h4>What causes the Solar Valley stutter?</h4>
+                    <p>Solar Valley looks great, but it’s a CPU trap. Most guides tell you to lower everything. That’s unnecessary. Instead, set <strong>Textures to High</strong> and <strong>Vegetation Quality to Medium</strong>. This keeps the game sharp while removing the CPU choke caused by dense foliage calculations.</p>
+
+                    <h4>Why does Where Winds Meet lag in single-player?</h4>
+                    <p>Because it isn’t truly offline. The game constantly performs Wind Sense server checks, even when you’re playing solo. When your connection isn’t stable, that network delay shows up as visual lag. If movement feels rubber-bandy, use a wired Ethernet connection or a reliable game booster.</p>
+
+                    <h4>DirectX 12 vs DirectX 11: Which should you use?</h4>
+                    <ul>
+                        <li><strong>RTX cards:</strong> DX12 (required for DLSS 4 and frame generation).</li>
+                        <li><strong>GTX 10-series:</strong> DX11 (more stable, fewer crashes).</li>
+                    </ul>
+
+                    <h4>Which setting secretly kills FPS the most?</h4>
+                    <p>It’s not shadows. It’s <strong>Real-Time Sunlight</strong>. Turning Real-Time Sunlight OFF removes random frame-time spikes during day/night transitions. The visual difference is minor, but the stability gain is immediate.</p>
+
+                    <h4>Best performance settings summary (2026)</h4>
+                    <ul>
+                        <li>Graphics API: DX12 (RTX) / DX11 (GTX)</li>
+                        <li>Tessellation: Low</li>
+                        <li>Super Resolution: DLSS 4 / FSR 4 (Quality)</li>
+                        <li>Real-Time Sunlight: OFF</li>
+                    </ul>
+
+                    <h4>Final thoughts</h4>
+                    <p>Where Winds Meet doesn’t run poorly—it runs unpredictably. Once you fix shader caching, reduce CPU pressure in dense areas, and account for its online systems, the game becomes far more consistent. It’s about making the game feel stable, which matters more in long sessions.</p>
+                `
+            },
             'cs2-economy': {
                 id: 'cs2-economy',
                 title: "Source 2 Shift: Sticker Slab Economy",
@@ -395,41 +453,38 @@
                     </ul>
 
                     <h4>S-Tier Weapons (Meta-Defining Picks)</h4>
-                    <p>These are the weapons that win rounds by themselves. If you can afford them and know how to use them, there’s no reason not to.</p>
-                    <p><strong>AWP:</strong> The AWP remains the most influential gun in CS2. One clean shot is all it takes, and on the right player, it can completely shut down a map. It’s expensive, but the pressure it creates is unmatched.</p>
-                    <p><strong>AK-47:</strong> The backbone of the T side. One-tap potential at any range, strong spray control, and insane value for its price. If you’re buying rifles as a Terrorist, this is always the first choice.</p>
-                    <p><strong>M4A1-S:</strong> Low recoil, excellent accuracy, and a suppressor that keeps you hidden. The M4A1-S rewards disciplined aim and positioning, making it the most reliable CT rifle in the current meta.</p>
-                    <p><strong>Desert Eagle:</strong> High risk, massive reward. The Deagle can flip eco rounds in seconds if your aim is sharp. It’s unforgiving, but no pistol strikes fear quite like this one.</p>
+                    <p><strong>AWP:</strong> The AWP remains the most influential gun in CS2. One clean shot is all it takes to shut down a map. It’s expensive, but the pressure it creates is unmatched.</p>
+                    <p><strong>AK-47:</strong> The backbone of the T side. One-tap potential at any range, strong spray control, and insane value for its price.</p>
+                    <p><strong>M4A1-S:</strong> Low recoil, excellent accuracy, and a suppressor that keeps you hidden. Most reliable CT rifle in the current meta.</p>
+                    <p><strong>Desert Eagle:</strong> High risk, massive reward. Can flip eco rounds in seconds.</p>
 
                     <h4>A-Tier Weapons (Reliable & Versatile)</h4>
-                    <p>A-Tier weapons may not dominate every situation, but they’re strong, consistent, and often cost-effective.</p>
-                    <p><strong>M4A4:</strong> More bullets, faster fire rate, and better for holding tight angles. If you prefer longer sprays and site anchoring, the M4A4 still holds its ground.</p>
-                    <p><strong>FAMAS:</strong> Not flashy, but dependable. When money is tight on CT side, the FAMAS lets you stay competitive without fully committing to a save.</p>
-                    <p><strong>Galil AR:</strong> One of the best value rifles in the game. Cheap, forgiving, and surprisingly effective for entry fragging when an AK isn’t affordable.</p>
-                    <p><strong>Tec-9 & Five-SeveN:</strong> These pistols shine in force-buy rounds. Mobile, aggressive, and deadly up close, they give eco rounds real upset potential.</p>
-                    <p><strong>MP9 & MAC-10:</strong> The kings of anti-eco. High fire rate, huge kill rewards, and deadly against unarmored opponents. Perfect for farming money and momentum.</p>
-                    <p><strong>SSG 08 (Scout):</strong> Lightweight and lethal in skilled hands. If your aim is sharp, the Scout lets you stay mobile while still dealing serious damage.</p>
-                    <p><strong>Glock-18 & USP-S:</strong> Pistol round staples. The Glock’s mobility and burst mode contrast nicely with the USP-S’s precision and accuracy.</p>
+                    <p><strong>M4A4:</strong> More bullets, faster fire rate. Better for site anchoring and longer sprays.</p>
+                    <p><strong>FAMAS:</strong> dependable when money is tight on CT side.</p>
+                    <p><strong>Galil AR:</strong> Best value rifle. Cheap and surprisingly effective for entry fragging.</p>
+                    <p><strong>Tec-9 & Five-SeveN:</strong> Shining in force-buy rounds. Aggressive and deadly up close.</p>
+                    <p><strong>MP9 & MAC-10:</strong> Anti-eco kings. High fire rate and huge kill rewards.</p>
+                    <p><strong>SSG 08 (Scout):</strong> Lightweight and lethal in skilled hands.</p>
 
                     <h4>B-Tier Weapons (Situational but Useful)</h4>
                     <p><strong>SG 553 & AUG:</strong> Scoped rifles with strong accuracy, but awkward spray patterns and high prices make them niche picks rather than defaults.</p>
                     <p><strong>Shotguns (Nova, XM1014, MAG-7):</strong> Devastating at close range and great for tight angles, but useless once distance comes into play. Strong on specific maps and setups only.</p>
-                    <p><strong>Auto-Snipers (SCAR-20 & G3SG1):</strong> Powerful but overpriced. They can lock down angles, yet their cost and mobility issues make them rare sights in serious matches.</p>
-                    <p><strong>P250:</strong> A solid budget pistol that still has one-tap potential against unarmored opponents. Reliable, but rarely game-changing.</p>
+                    <p><strong>Auto-Snipers:</strong> Powerful but overpriced. They can lock down angles, yet their cost and mobility issues make them rare sights in matches.</p>
+                    <p><strong>P250:</strong> A solid budget pistol that still has one-tap potential against unarmored opponents.</p>
 
                     <h4>C-Tier Weapons (Rarely Worth Buying)</h4>
                     <p><strong>CZ-75 Auto:</strong> Can surprise someone once — and then you’re empty. Extremely limited, with no room for mistakes.</p>
-                    <p><strong>P90:</strong> High ammo count, low impact. It’s easy to use but struggles badly against rifles, making its high price hard to justify.</p>
-                    <p><strong>MP7, MP5, PP-Bizon, UMP-45:</strong> None of these SMGs truly stand out. They’re usable, but there’s almost always a better choice for the same money.</p>
-                    <p><strong>P2000:</strong> Outperformed by the USP-S in nearly every situation. Picking this feels like settling for less.</p>
+                    <p><strong>P90:</strong> High ammo count, low impact. It’s easy to use but struggles badly against rifles.</p>
+                    <p><strong>SMGs (MP7, MP5, Bizon):</strong> None of these SMGs truly stand out. There’s almost always a better choice for the same money.</p>
+                    <p><strong>P2000:</strong> Outperformed by the USP-S in nearly every situation.</p>
 
                     <h4>D-Tier Weapons (Avoid in Competitive Play)</h4>
-                    <p><strong>R8 Revolver:</strong> High damage ruined by delayed firing. In a game built on instant reactions, this design choice makes it unreliable.</p>
-                    <p><strong>M249:</strong> Extremely expensive, slow, and difficult to control. The downsides far outweigh any benefit.</p>
-                    <p><strong>Negev:</strong> Fun in casual modes, questionable everywhere else. Once you start shooting, you’re basically a stationary target.</p>
+                    <p><strong>R8 Revolver:</strong> High damage ruined by delayed firing. Design choice makes it unreliable.</p>
+                    <p><strong>M249:</strong> Extremely expensive, slow, and difficult to control.</p>
+                    <p><strong>Negev:</strong> Fun in casual modes, questionable everywhere else.</p>
 
                     <h4>Final Verdict</h4>
-                    <p>CS2 is still a game where smart buys win games. Mastering a small pool of reliable weapons will always outperform experimenting with flashy but ineffective options. Stick to S-Tier and A-Tier weapons, manage your economy well, and buy with purpose.</p>
+                    <p>Stick to S-Tier and A-Tier weapons, manage your economy well, and buy with purpose. Mastering a few reliable tools beats experimenting with low-impact options.</p>
                 `
             },
             'valorant-harbor': {
