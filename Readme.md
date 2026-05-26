@@ -9,6 +9,15 @@
     <meta name="description" content="Expert guides and meta updates for Where Winds Meet, CS2, and Valorant. Master the Jianghu and dominate the competitive shooter ladders.">
     <meta name="keywords" content="Where Winds Meet guide, CS2 patch notes, Valorant agent tier list, Gamer Info GG">
     <meta name="author" content="Gamer Info GG">
+    <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZD9MH87Z84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZD9MH87Z84');
+</script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
